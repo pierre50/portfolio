@@ -13,8 +13,7 @@
     "cakeblog.description": "Cakeblog is an online blog. The author of the blog can generate, modify or delete articles and manage the comments left by visitors on each article. Visitors can leave one or more comments with a pseudonym and send an email to the author of the blog using a contact form.",
     "freefallin.description": "FreeFallin 'and a little 2D game, aim and dodge the obstacles of a randomly generated world, by pivoting your phone from left to right, all during the catchy fall of the character. Along the way, we will find some superpower in the form of a crate. The score increases over time, but so does the difficulty. When the character crashes on a wall the game stops, the score and save then available via the home menu and we (had) the possibility to share the score on Facebook.",
     "easyhome.description": "EasyHome is the site of a real estate agency. Each visitor can consult the advertisements and list them according to their needs / preferences. Once connected, a user can request an appointment to visit a property and specify or not a date, but also view and manage their appointments. He can also request the addition of real estate. All his requests are retransmitted by email to the sellers concerned, this one will then be able via a dedicated space to add announcements and manage his appointments.",
-
-    "project.type": "type",
+    "project.type": "Type",
     "project.type.school": "School project",
     "project.type.personnal": "Personnal project",
     "project.year": "Year",
@@ -25,16 +24,16 @@
     "project.status.inprogress": "In progress",
     "project.technologies": "Technologies",
     "project.link": "Link",
-    "project.previous":"Previous project",
-    "project.next":"Next project",
-    "project.goback":"List of projects",
-    "project.notfound":"Project not found",
-
-    "job":"Developer",
-    "menu.home":"Home",
-    "menu.projects":"Projects",
-    "menu.contact":"Contact",
-    "title.home":"About me",
-    "title.projects":"My projects",
-    "title.contact":"Contact me"
+    "project.previous": "Previous project",
+    "project.next": "Next project",
+    "project.goback": "List of projects",
+    "project.notfound": "Project not found",
+    "job": "Developer",
+    "downloadcv": "Download CV",
+    "menu.home": "Home",
+    "menu.projects": "Projects",
+    "menu.contact": "Contact",
+    "title.home": "About me",
+    "title.projects": "My projects",
+    "title.contact": "Contact me"
 }

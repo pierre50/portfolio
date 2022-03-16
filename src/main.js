@@ -26,7 +26,7 @@ Vue.store = Vue.prototype.store = {
       length: '6 mois',
       status: 'finished',
       links: 'https://github.com/pierre50/upload-frontend,https://github.com/pierre50/upload-backend',
-      technologies: 'VueJS|ElementUi',
+      technologies: 'VueJS|ElementUI|Laravel',
       image_count: 5,
     },
     {

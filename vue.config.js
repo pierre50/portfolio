@@ -2,6 +2,7 @@ module.exports = {
   "transpileDependencies": [
     "vuetify"
   ],
+  assetsDir: 'assets',
 
   pluginOptions: {
     i18n: {
@@ -10,5 +11,5 @@ module.exports = {
       localeDir: 'locales',
       enableInSFC: false
     }
-  }
+  },
 }

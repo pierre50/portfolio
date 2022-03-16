@@ -13,8 +13,7 @@
     "cakeblog.description": "Cakeblog est un blog en ligne. L'auteur du blog pourra générer, modifier ou supprimer des articles et gérer les commentaires laissés par les visiteurs sur chaque article. Les visiteurs pourront laisser un ou plusieurs commentaire(s) avec un pseudonyme et envoyer un mail à l'auteur du blog grâce à un formulaire de contact.",
     "freefallin.description": "FreeFallin' et un petit jeu en 2D, le but et d'esquiver les obstacles d'un monde généré aléatoirement, en pivotant son téléphone de gauche a droite, tout ça durant la chute entrainante du personnage. Sur le chemin, on trouvera certain super-pouvoir sous la forme de caisse. Le score augmente au fil du temps, mais la difficulté aussi. Lorsque que le personnage se crashe sur un mur la partie s'arrête, le score et enregistrer puis disponible via le menu accueil et on (avait) la possibilité de partager le score sur Facebook.",
     "easyhome.description": "EasyHome est le site d'une agence immobilière. Chaque visiteur peut consulter les annonces et les répertorier selon ses besoins / préférences. Une fois connecté, un utilisateur peut demander un rendez-vous pour visiter un bien et préciser ou non une date, mais aussi visualiser et gérer ses rendez-vous. Il peut aussi demander l'ajout d'un bien immobilier. Toutes ses demandes sont retransmises par mail aux vendeurs concerné, celui-ci pourra alors via un espace dédié ajouter des annonces et gerer ses rendez-vous.",
-
-    "project.type": "type",
+    "project.type": "Type",
     "project.type.school": "Projet d'école",
     "project.type.personnal": "Projet personnel",
     "project.year": "Année",
@@ -25,16 +24,16 @@
     "project.status.inprogress": "En cours",
     "project.technologies": "Technologie(s)",
     "project.link": "Lien(s)",
-    "project.previous":"Projet précédent",
-    "project.next":"Projet suivant",
-    "project.goback":"Liste des projets",
-    "project.notfound":"Projet introuvable",
-
-    "job":"Développeur",
-    "menu.home":"Accueil",
-    "menu.projects":"Projets",
-    "menu.contact":"Contact",
-    "title.home":"À Propos",
-    "title.projects":"Mes projets",
-    "title.contact":"Contactez-moi"
+    "project.previous": "Projet précédent",
+    "project.next": "Projet suivant",
+    "project.goback": "Liste des projets",
+    "project.notfound": "Projet introuvable",
+    "job": "Développeur",
+    "downloadcv": "Télécharger le CV",
+    "menu.home": "Accueil",
+    "menu.projects": "Projets",
+    "menu.contact": "Contact",
+    "title.home": "À Propos",
+    "title.projects": "Mes projets",
+    "title.contact": "Contactez-moi"
 }
