@@ -1,5 +1,6 @@
 {
     "rts.description": "",
+    "kiki.description": "",
     "supfile.description": "Supfile est une application web d'hébergement et de partage de fichiers, ainsi un utilisateur va depuis son navigateur web hébergé des fichiers de tous types ( vidéo, images, texte, ...). Chaque fichier peut être renommé, déplacer et supprimer via une arborescence et il pourra partager ses fichiers via un lien de partage.",
     "awale.description": "L'Awalé est un jeu d'origine africaine de a famille des Mancalas. C'est un jeu stratégique où il faut récolter le plus de graines. Le but de ce projet était de développer une intelligence artificielle avec trois niveaux de difficulté.",
     "battleship.description": "Développer le célèbre jeux Battleship ( bataille navale ) en WEB, avec un tchat global et la possibilité d'ajouter des amis pour jouer contre eux.",

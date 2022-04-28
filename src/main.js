@@ -9,6 +9,16 @@ Vue.config.productionTip = false
 Vue.store = Vue.prototype.store = {
   projects: [
     {
+      id: 'kiki',
+      title: 'Kiki',
+      type: 'personnal',
+      year: '2022',
+      status: 'inprogress',
+      links: 'https://github.com/pierre50/kiki',
+      technologies: 'BabylonJS',
+      image_count: 1,
+    },
+    {
       id: 'rts',
       title: 'RTS game',
       type: 'personnal',
@@ -47,6 +57,7 @@ Vue.store = Vue.prototype.store = {
       year: '2018',
       length: '2 semaines',
       status: 'finished',
+      links: 'https://github.com/pierre50/Battleship',
       technologies: 'NodeJS|HTML|jQuery|Javascript|Bootstrap|SocketIO',
       image_count: 3
     },
@@ -87,6 +98,7 @@ Vue.store = Vue.prototype.store = {
       year: '2017',
       length: '6 mois',
       status: 'finished',
+      links: 'https://github.com/pierre50/qwirk',
       technologies: 'NodeJS|Javascript|jQuery|Bootstrap|HTML|WebRTC|SocketIO',
       image_count: 3
     },

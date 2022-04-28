@@ -1,5 +1,6 @@
 {
     "rts.description": "",
+    "kiki.description": "",
     "supfile.description": "Supfile is a web hosting and file sharing application, so a user can access files of all types from their web browser (video, images, text, ...). Each file can be renamed, moved and deleted via a tree structure and it can share its files via a share link.",
     "awale.description": "Awale is a game of African origin from the Mancala family. It is a strategic game where you have to harvest the most seeds. The goal of this project was to develop artificial intelligence with three levels of difficulty.",
     "battleship.description": "Develop the famous Battleship games in WEB, with a global chat and the possibility of adding friends to play against them.",
