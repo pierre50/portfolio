@@ -87,6 +87,7 @@ export default {
   },
   computed: {
     title() {
+
       let isPo = false;
       let text = "";
       if (this.$route.name === "project" && this.$route.params.id) {
@@ -95,8 +96,9 @@ export default {
         );
         if (project) {
           text = project.title;
+        }else{
+          text = "Error";
         }
-        text = "Error";
       } else {
         isPo = true;
         text = "title." + this.$route.name;
