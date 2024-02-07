@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <vue-pdf-embed source="/assets/CVPierreNICOLAS.pdf"></vue-pdf-embed>
+    <VuePdfEmbed source="/assets/CVPierreNICOLAS.pdf"></VuePdfEmbed>
   </div>
 </template>
 
 <script>
-import VuePdfEmbed from "vue-pdf-embed/dist/vue2-pdf-embed";
+import VuePdfEmbed from "vue-pdf-embed";
 
 export default {
   name: "Home",

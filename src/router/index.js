@@ -1,8 +1,5 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue';
-
-Vue.use(VueRouter);
 
 const routes = [
   {
@@ -21,22 +18,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue')
   },
   {
-    path: '/contact',
-    name: 'contact',
-    component: () => import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
-  },
-  {
-    path: '*',
+    path: '/:catchAll(.*)',
     redirect: () => {
       return { path: '/' }
     },
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
-export default router;
+export default router

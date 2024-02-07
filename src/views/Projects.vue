@@ -5,21 +5,25 @@
       :key="project.id"
       class="mx-auto"
       style="max-width: 300px; margin: 15px 0"
-      max-width="300"
+      width="300"
       :to="`/project/${project.id}`"
     >
-      <v-img height="200px" :src="getProjectImage(project.id)"> </v-img>
-      <v-card-subtitle>{{ project.title }}</v-card-subtitle>
+      <v-img height="200px" gradient="to bottom, rgba(0,0,0,.5), rgba(0,0,0,.1)"
+      cover :src="getProjectImage(project.id)"> 
+        <v-card-title class="text-white" >{{ project.title }}</v-card-title>
+      </v-img>
     </v-card>
   </div>
 </template>
 
 <script>
+import { projects } from '../constants'
+
 export default {
   name: "Projects",
   data() {
     return {
-      projects: this.store.projects,
+      projects,
     };
   },
   methods: {
@@ -33,5 +37,6 @@ export default {
 .projects {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 </style>

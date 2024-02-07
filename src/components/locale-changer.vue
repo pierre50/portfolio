@@ -1,6 +1,18 @@
 <template>
   <div class="locale-changer">
-    <v-select v-model="$i18n.locale" :items="langs" dark flat dense> </v-select>
+    <v-select
+      rounded
+      v-model="$i18n.locale"
+      variant="plain"
+      :items="langs"
+      dark
+      flat
+      dense
+      item-value="value"
+      :item-title="(item) => $t(`lang.${item.value}`)"
+    >
+
+    </v-select>
   </div>
 </template>
 
@@ -9,7 +21,7 @@ export default {
   name: "locale-changer",
   data() {
     return {
-      langs: ["fr", "en"],
+      langs: [{value: "fr"}, {value: "en"}],
     };
   },
 };
@@ -17,9 +29,19 @@ export default {
 <style>
 .locale-changer {
   position: absolute;
-  top: 6px;
+  top: 2px;
   right: 10px;
-  width: 30px;
+}
+.locale-changer span.v-select__selection-text {
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-top: -8px;
+  margin-right: -10px;
+  width: 2ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: unset;
+  font-family: monospace;
 }
 .locale-changer .v-input {
   font-size: 11px;

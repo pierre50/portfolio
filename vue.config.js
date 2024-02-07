@@ -1,15 +1,19 @@
-module.exports = {
-  "transpileDependencies": [
-    "vuetify"
-  ],
-  assetsDir: 'assets',
+const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
+  transpileDependencies: true,
 
   pluginOptions: {
     i18n: {
-      locale: 'en',
+      locale: 'fr',
       fallbackLocale: 'en',
       localeDir: 'locales',
-      enableInSFC: false
-    }
-  },
-}
+      enableLegacy: false,
+      runtimeOnly: false,
+      compositionOnly: false,
+      fullInstall: true
+    },
+    vuetify: {
+			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
+		}
+  }
+})

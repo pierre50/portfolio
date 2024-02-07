@@ -1,6 +1,6 @@
 <template>
   <div v-if="project">
-    <div class="content">
+    <div class="project-content">
       <div v-if="project.type">
         {{ $t("project.type") }}: {{ $t(`project.type.${project.type}`) }}
       </div>
@@ -8,7 +8,12 @@
         {{ $t("project.year") }}: {{ project.year }}
       </div>
       <div v-if="project.length">
-        {{ $t("project.length") }}: {{ project.length }}
+        {{ $t("project.length") }}:
+        {{
+          typeof project.length === "object"
+            ? project.length[$i18n.locale]
+            : project.length
+        }}
       </div>
       <div v-if="project.status">
         {{ $t("project.status") }}: {{ $t(`project.status.${project.status}`) }}
@@ -28,33 +33,38 @@
         <div v-html="links"></div>
       </div>
       <br />
-      <div v-html="$t(`${project.id}.description`)"></div>
-
-      <div class="images">
-        <v-img
-          v-for="image in images"
-          :src="image"
-          :key="image"
-          contain
-          max-height="300"
-          max-width="500"
-        />
+      <div
+        v-if="$te(`${project.id}.description`)"
+        class="project-description"
+        v-html="$t(`${project.id}.description`)"
+      ></div>
+      <div v-if="project.preview" class="project-preview">
+        <iframe width="800" height="500" :src="project.preview"></iframe>
+      </div>
+      <div class="project-images">
+        <v-carousel v-if="images.length"  background="#ededed" :show-arrows="false">
+          <v-carousel-item
+            v-for="image in images"
+            :src="image"
+            :key="image"
+          ></v-carousel-item>
+        </v-carousel>
       </div>
     </div>
     <v-bottom-navigation absolute grow>
       <v-btn :disabled="!previous" :to="previousHref">
-        <span>{{ $t("project.previous") }}</span>
         <v-icon>mdi-arrow-left</v-icon>
+        <span>{{ $t("project.previous") }}</span>
       </v-btn>
 
       <v-btn to="/projects">
-        <span>{{ $t("project.goback") }}</span>
         <v-icon>mdi-view-dashboard</v-icon>
+        <span>{{ $t("project.goback") }}</span>
       </v-btn>
 
       <v-btn :disabled="!next" :to="nextHref">
-        <span>{{ $t("project.next") }}</span>
         <v-icon>mdi-arrow-right</v-icon>
+        <span>{{ $t("project.next") }}</span>
       </v-btn>
     </v-bottom-navigation>
   </div>
@@ -63,6 +73,8 @@
   </div>
 </template>
 <script>
+import { projects } from "../constants";
+
 export default {
   name: "Projet",
   data() {
@@ -105,26 +117,36 @@ export default {
     },
   },
   created() {
-    const index = this.store.projects.findIndex(
+    const index = projects.findIndex(
       (project) => project.id === this.$route.params.id
     );
-    this.project = this.store.projects[index];
-    this.previous = this.store.projects[index - 1] || null;
-    this.next = this.store.projects[index + 1] || null;
+    this.project = projects[index];
+    this.previous = projects[index - 1] || null;
+    this.next = projects[index + 1] || null;
   },
 };
 </script>
 <style scoped>
-.images {
+.project-images {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  background: whitesmoke;
 }
-.images > .v-image {
-  margin: 15px;
+.project-description {
+  padding-bottom: 20px;
 }
-.content {
+.project-preview {
+  display: flex;
+  justify-content: center;
+  border: none;
+  background: whitesmoke;
+}
+.project-preview iframe {
+  border: none;
+}
+.project-content {
   margin-bottom: 40px;
 }
 </style>

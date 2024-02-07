@@ -1,35 +1,38 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
   },
   "dependencies": {
-    "core-js": "^3.21.1",
-    "vue": "^2.6.14",
-    "vue-i18n": "^8.27.0",
-    "vue-pdf-embed": "^1.1.0",
-    "vue-router": "^3.5.3",
-    "vuetify": "^2.6.4"
+    "@mdi/font": "^7.4.47",
+    "core-js": "^3.8.3",
+    "roboto-fontface": "*",
+    "vue": "^3.2.13",
+    "vue-i18n": "^9.9.1",
+    "vue-pdf-embed": "^2.0.2",
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.5.2",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-plugin-router": "^4.5.16",
-    "@vue/cli-service": "^4.4.6",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "sass": "~1.32.12",
-    "sass-loader": "^8.0.0",
-    "vue-cli-plugin-i18n": "~1.0.1",
-    "vue-cli-plugin-vuetify": "^2.0.9",
-    "vue-template-compiler": "^2.6.14",
-    "vuetify-loader": "^1.7.3"
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@babel/plugin-transform-private-methods": "^7.23.3",
+    "@intlify/vue-i18n-loader": "^3.0.0",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "vue-cli-plugin-i18n": "~2.3.2",
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
   },
   "eslintConfig": {
     "root": true,
@@ -37,17 +40,20 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/vue3-essential",
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "vue/multi-word-component-names": "off"
+    }
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not dead"
+    "not dead",
+    "not ie 11"
   ]
 }

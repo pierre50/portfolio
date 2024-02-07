@@ -36,5 +36,7 @@
     "menu.contact": "Contact",
     "title.home": "About me",
     "title.projects": "My projects",
-    "title.contact": "Contact me"
+    "title.contact": "Contact me",
+    "lang.fr": "French",
+    "lang.en": "English"
 }

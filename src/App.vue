@@ -1,34 +1,26 @@
 <template>
   <v-app>
-    <v-navigation-drawer color="#30426A" app left dark v-model="drawer">
-      <v-list dense nav class="py-0">
-        <v-list-item two-line>
-          <v-list-item-avatar size="56">
-            <img style="object-fit: cover" src="@/assets/profile.jpg" />
-          </v-list-item-avatar>
-
-          <v-list-item-content>
-            <v-list-item-title>Pierre NICOLAS</v-list-item-title>
-            <v-list-item-subtitle>{{ $t("job") }}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
+    <v-navigation-drawer image="/assets/bg.jpeg" app left v-model="drawer">
+      <v-list dense nav>
+        <v-list-item
+          lines="two"
+          prepend-avatar="/assets/profile.jpg"
+          title="Pierre NICOLAS"
+          :subtitle="$t('job')"
+        ></v-list-item>
 
         <v-divider></v-divider>
 
         <v-list-item
           v-for="item in items"
+          :prepend-icon="item.icon"
+          :title="$t(item.title)"
+          :to="item.to"
+          :value="title"
           :key="item.title"
-          :to="item.href"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+          :href="item.href"
+          :target="item.href && '_blank'"
+        ></v-list-item>
 
         <locale-changer />
       </v-list>
@@ -51,11 +43,17 @@
         </v-btn>
         <v-btn
           v-if="$route.name === 'home'"
+          icon="mdi-open-in-new"
+          href="assets/CVPierreNICOLAS.pdf"
+          target="_blank"
+        >
+        </v-btn>
+        <v-btn
+          v-if="$route.name === 'home'"
+          icon="mdi-download"
           href="assets/CVPierreNICOLAS.pdf"
           download
         >
-          <v-icon>mdi-download</v-icon>
-          {{ $t("downloadcv") }}
         </v-btn>
       </v-app-bar>
       <v-container fluid>
@@ -69,34 +67,48 @@
 </template>
 
 <script>
+import { projects } from "./constants";
 import LocaleChanger from "./components/locale-changer.vue";
 export default {
   data() {
     return {
       items: [
-        { title: "menu.home", icon: "mdi-home", href: "/" },
+        { title: "menu.home", icon: "mdi-home", to: "/" },
         {
           title: "menu.projects",
           icon: "mdi-view-dashboard",
-          href: "/projects",
+          to: "/projects",
         },
-        { title: "menu.contact", icon: "mdi-phone", href: "/contact" },
+        {
+          title: "E-mail",
+          icon: "mdi-email",
+          href: "mailto:tenzin50@hotmail.fr",
+        },
+        {
+          title: "Linkedin",
+          icon: "mdi-linkedin",
+          href: "https://www.linkedin.com/in/pierre-nicolas-62b3a9b2/",
+        },
+        {
+          title: "Github",
+          icon: "mdi-github",
+          href: "https://github.com/pierre50",
+        },
       ],
       drawer: null,
     };
   },
   computed: {
     title() {
-
       let isPo = false;
       let text = "";
       if (this.$route.name === "project" && this.$route.params.id) {
-        const project = this.store.projects.find(
+        const project = projects.find(
           (project) => project.id === this.$route.params.id
         );
         if (project) {
           text = project.title;
-        }else{
+        } else {
           text = "Error";
         }
       } else {
