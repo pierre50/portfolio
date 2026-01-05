@@ -15,10 +15,16 @@ export default {
   computed: {
     pdfSource() {
       // Choisit le PDF selon la langue courante
-      return this.$i18n.locale === 'en'
-        ? '/assets/cv-en.pdf'
-        : '/assets/cv-fr.pdf';
+      return this.$i18n.locale === 'fr'
+        ? '/assets/cv-fr.pdf'
+        : '/assets/cv-en.pdf';
     }
   }
 };
 </script>
+
+<style scoped>
+.home :deep(.vue-pdf-embed) {
+  margin-top: -110px;
+}
+</style>

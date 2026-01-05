@@ -9,7 +9,6 @@
       flat
       dense
       item-value="value"
-      :item-title="(item) => $t(`lang.${item.value}`)"
     >
 
     </v-select>
@@ -21,7 +20,7 @@ export default {
   name: "locale-changer",
   data() {
     return {
-      langs: [{value: "fr"}, {value: "en"}],
+      langs: [{value: "fr", title: "Français"}, {value: "en", title: "English"}],
     };
   },
 };

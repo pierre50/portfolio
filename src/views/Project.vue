@@ -2,7 +2,7 @@
   <div v-if="project">
     <div class="project-content">
       <div v-if="project.type">
-        {{ $t("project.type") }}: {{ $t(`project.type.${project.type}`) }}
+        {{ $t("project.type.default") }}: {{ $t(`project.type.${project.type}`) }}
       </div>
       <div v-if="project.year">
         {{ $t("project.year") }}: {{ project.year }}
@@ -16,7 +16,7 @@
         }}
       </div>
       <div v-if="project.status">
-        {{ $t("project.status") }}: {{ $t(`project.status.${project.status}`) }}
+        {{ $t("project.status.default") }}: {{ $t(`project.status.${project.status}`) }}
       </div>
       <div v-if="technologies.length">
         {{ $t("project.technologies") }}:
@@ -34,9 +34,9 @@
       </div>
       <br />
       <div
-        v-if="$te(`projects/${project.id}.description`)"
+        v-if="$te(`projects.${project.id}.description`)"
         class="project-description"
-        v-html="$t(`projects/${project.id}.description`)"
+        v-html="$t(`projects.${project.id}.description`)"
       ></div>
       <div v-if="project.preview" class="project-preview">
         <iframe width="800" height="500" :src="project.preview"></iframe>
