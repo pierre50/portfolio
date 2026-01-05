@@ -1,42 +1,56 @@
 {
-  "rts.description": "",
-  "kiki.description": "",
-  "supfile.description": "Supfile est une application web d'hébergement et de partage de fichiers, ainsi un utilisateur va depuis son navigateur web hébergé des fichiers de tous types ( vidéo, images, texte, ...). Chaque fichier peut être renommé, déplacer et supprimer via une arborescence et il pourra partager ses fichiers via un lien de partage.",
-  "awale.description": "L'Awalé est un jeu d'origine africaine de a famille des Mancalas. C'est un jeu stratégique où il faut récolter le plus de graines. Le but de ce projet était de développer une intelligence artificielle avec trois niveaux de difficulté.",
-  "battleship.description": "Développer le célèbre jeux Battleship ( bataille navale ) en WEB, avec un tchat global et la possibilité d'ajouter des amis pour jouer contre eux.",
-  "weathermap.description": "WeatherMap est une application permettant de consulter facilement et rapidement la météo dans le monde. En cliquant directement sur la carte ou en recherchant une ville, on obtient les informations de météo de la région sélectionnée. Il est aussi possible de sauvegarder des villes ou région en favoris, pour les consulter dans une vue dédiée.",
-  "biblio.description": "Biblio est un outil permettant de gérer la location de livres dans une bibliothèque, ainsi ont peu gérer les utilisateurs et les livres. Crée, clôturer une location et consulter l'historique de location pour chaque livre ou utilisateur.",
-  "supinfy.description": "Supinfy est une application de musique en streaming. Chaque utilisateur peut écouter des musiques, une fois connecter, il peut gérer ses playlists, mais aussi rechercher les playlists d'autres utilisateurs. Un système de contact permet d'ajouter des amis et ainsi être tenu au courant des dernières playlists de ses amis. L'administrateur peut lui gérer les utilisateurs et sélectionner des playlists à mettre en page d'accueil.",
-  "qwirk.description": "Qwirk est une application de communication personnelle et professionnelle, compatible Windows, MacOS, Linux(Ubuntu). Un système de messagerie instantanée complet : message, vidéo, audio conférence avec gestion des contacts (ajouter, supprimer, bloquer, modifier le surnom) et partage de fichier. Modification du profil, choix du thème de l'application. Possibilité d'envoyer des émoticones et de styliser le texte. Création de groupe public (channel) et groupe privé. Toutes les conversations sont sauvegarde et le tout est totalement sécuriser.",
-  "imap.description": "Le but de cette application est de trouver une position où nous étions. Utile pour trouver très vite sa voiture sur un grand parking. Il permet également de trouver sa tente dans un festival de musique ou des endroits intéressants en ville que nous avons rencontrés par hasard.",
-  "supsale.description": "Supsale est un site de petites annonces comme Amazon ou Leboncoin. Les visiteurs peuvent rechercher une annonce par un moteur de recherche, puis contacter le vendeur par mail via un formulaire. Une fois connecté, chaque utilisateur peut publier une annonce parmi des catégories de vente, il peut aussi gérer ses annonces. Les administrateurs peuvent gérer les utilisateurs et leurs annonces.",
-  "symfony.description": "Développer un site permettant à une entreprise de vendre leurs produits en ligne. Les visiteurs peuvent rechercher un article répertorié. Après s'être identifié un utilisateur peut ajouter un produit à son panier. En concluant ses achats, un mail sera envoyé au service des ventes. L'utilisateur peut consulter l'historique de ses achats et suivre le colis. Un vendeur peu lui ajouter/editer/supprimer un article dans une des catégories de vente.",
-  "cakeblog.description": "Cakeblog est un blog en ligne. L'auteur du blog pourra générer, modifier ou supprimer des articles et gérer les commentaires laissés par les visiteurs sur chaque article. Les visiteurs pourront laisser un ou plusieurs commentaire(s) avec un pseudonyme et envoyer un mail à l'auteur du blog grâce à un formulaire de contact.",
-  "freefallin.description": "FreeFallin' et un petit jeu en 2D, le but et d'esquiver les obstacles d'un monde généré aléatoirement, en pivotant son téléphone de gauche a droite, tout ça durant la chute entrainante du personnage. Sur le chemin, on trouvera certain super-pouvoir sous la forme de caisse. Le score augmente au fil du temps, mais la difficulté aussi. Lorsque que le personnage se crashe sur un mur la partie s'arrête, le score et enregistrer puis disponible via le menu accueil et on (avait) la possibilité de partager le score sur Facebook.",
-  "easyhome.description": "EasyHome est le site d'une agence immobilière. Chaque visiteur peut consulter les annonces et les répertorier selon ses besoins / préférences. Une fois connecté, un utilisateur peut demander un rendez-vous pour visiter un bien et préciser ou non une date, mais aussi visualiser et gérer ses rendez-vous. Il peut aussi demander l'ajout d'un bien immobilier. Toutes ses demandes sont retransmises par mail aux vendeurs concerné, celui-ci pourra alors via un espace dédié ajouter des annonces et gerer ses rendez-vous.",
-  "project.type": "Type",
-  "project.type.school": "Projet d'école",
-  "project.type.personnal": "Projet personnel",
-  "project.year": "Année",
-  "project.length": "Durée",
-  "project.status": "Statut",
-  "project.status.aborted": "Abandonné",
-  "project.status.finished": "Terminé",
-  "project.status.inprogress": "En cours",
-  "project.technologies": "Technologie(s)",
-  "project.link": "Lien(s)",
-  "project.previous": "Projet précédent",
-  "project.next": "Projet suivant",
-  "project.goback": "Liste des projets",
-  "project.notfound": "Projet introuvable",
+  "projects": {
+    "rts": { "description": "" },
+    "kiki": { "description": "" },
+    "supfile": { "description": "Supfile est une application web d'hébergement et de partage de fichiers, ainsi un utilisateur va depuis son navigateur web hébergé des fichiers de tous types ( vidéo, images, texte, ...). Chaque fichier peut être renommé, déplacer et supprimer via une arborescence et il pourra partager ses fichiers via un lien de partage." },
+    "awale": { "description": "L'Awalé est un jeu d'origine africaine de a famille des Mancalas. C'est un jeu stratégique où il faut récolter le plus de graines. Le but de ce projet était de développer une intelligence artificielle avec trois niveaux de difficulté." },
+    "battleship": { "description": "Développer le célèbre jeux Battleship ( bataille navale ) en WEB, avec un tchat global et la possibilité d'ajouter des amis pour jouer contre eux." },
+    "weathermap": { "description": "WeatherMap est une application permettant de consulter facilement et rapidement la météo dans le monde. En cliquant directement sur la carte ou en recherchant une ville, on obtient les informations de météo de la région sélectionnée. Il est aussi possible de sauvegarder des villes ou région en favoris, pour les consulter dans une vue dédiée." },
+    "biblio": { "description": "Biblio est un outil permettant de gérer la location de livres dans une bibliothèque, ainsi ont peu gérer les utilisateurs et les livres. Crée, clôturer une location et consulter l'historique de location pour chaque livre ou utilisateur." },
+    "supinfy": { "description": "Supinfy est une application de musique en streaming. Chaque utilisateur peut écouter des musiques, une fois connecter, il peut gérer ses playlists, mais aussi rechercher les playlists d'autres utilisateurs. Un système de contact permet d'ajouter des amis et ainsi être tenu au courant des dernières playlists de ses amis. L'administrateur peut lui gérer les utilisateurs et sélectionner des playlists à mettre en page d'accueil." },
+    "qwirk": { "description": "Qwirk est une application de communication personnelle et professionnelle, compatible Windows, MacOS, Linux(Ubuntu). Un système de messagerie instantanée complet : message, vidéo, audio conférence avec gestion des contacts (ajouter, supprimer, bloquer, modifier le surnom) et partage de fichier. Modification du profil, choix du thème de l'application. Possibilité d'envoyer des émoticones et de styliser le texte. Création de groupe public (channel) et groupe privé. Toutes les conversations sont sauvegarde et le tout est totalement sécuriser." },
+    "imap": { "description": "Le but de cette application est de trouver une position où nous étions. Utile pour trouver très vite sa voiture sur un grand parking. Il permet également de trouver sa tente dans un festival de musique ou des endroits intéressants en ville que nous avons rencontrés par hasard." },
+    "supsale": { "description": "Supsale est un site de petites annonces comme Amazon ou Leboncoin. Les visiteurs peuvent rechercher une annonce par un moteur de recherche, puis contacter le vendeur par mail via un formulaire. Une fois connecté, chaque utilisateur peut publier une annonce parmi des catégories de vente, il peut aussi gérer ses annonces. Les administrateurs peuvent gérer les utilisateurs et leurs annonces." },
+    "symfony": { "description": "Développer un site permettant à une entreprise de vendre leurs produits en ligne. Les visiteurs peuvent rechercher un article répertorié. Après s'être identifié un utilisateur peut ajouter un produit à son panier. En concluant ses achats, un mail sera envoyé au service des ventes. L'utilisateur peut consulter l'historique de ses achats et suivre le colis. Un vendeur peu lui ajouter/editer/supprimer un article dans une des catégories de vente." },
+    "cakeblog": { "description": "Cakeblog est un blog en ligne. L'auteur du blog pourra générer, modifier ou supprimer des articles et gérer les commentaires laissés par les visiteurs sur chaque article. Les visiteurs pourront laisser un ou plusieurs commentaire(s) avec un pseudonyme et envoyer un mail à l'auteur du blog grâce à un formulaire de contact." },
+    "freefallin": { "description": "FreeFallin' et un petit jeu en 2D, le but et d'esquiver les obstacles d'un monde généré aléatoirement, en pivotant son téléphone de gauche a droite, tout ça durant la chute entrainante du personnage. Sur le chemin, on trouvera certain super-pouvoir sous la forme de caisse. Le score augmente au fil du temps, mais la difficulté aussi. Lorsque que le personnage se crashe sur un mur la partie s'arrête, le score et enregistrer puis disponible via le menu accueil et on (avait) la possibilité de partager le score sur Facebook." },
+    "easyhome": { "description": "EasyHome est le site d'une agence immobilière. Chaque visiteur peut consulter les annonces et les répertorier selon ses besoins / préférences. Une fois connecté, un utilisateur peut demander un rendez-vous pour visiter un bien et préciser ou non une date, mais aussi visualiser et gérer ses rendez-vous. Il peut aussi demander l'ajout d'un bien immobilier. Toutes ses demandes sont retransmises par mail aux vendeurs concerné, celui-ci pourra alors via un espace dédié ajouter des annonces et gerer ses rendez-vous." }
+  },
+  "project": {
+    "type": {
+      "default": "Type",
+      "school": "Projet d'école",
+      "personal": "Projet personnel"
+    },
+    "year": "Année",
+    "length": "Durée",
+    "status": {
+      "default": "Statut",
+      "aborted": "Abandonné",
+      "finished": "Terminé",
+      "inprogress": "En cours"
+    },
+    "technologies": "Technologie(s)",
+    "link": "Lien(s)",
+    "previous": "Projet précédent",
+    "next": "Projet suivant",
+    "goback": "Liste des projets",
+    "notfound": "Projet introuvable"
+  },
   "job": "Développeur",
   "downloadcv": "Télécharger le CV",
-  "menu.home": "Accueil",
-  "menu.projects": "Projets",
-  "menu.contact": "Contact",
-  "title.home": "À Propos",
-  "title.projects": "Mes projets",
-  "title.contact": "Contactez-moi",
-  "lang.fr": "Français",
-  "lang.en": "Anglais"
+  "menu": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "title": {
+    "home": "À Propos",
+    "projects": "Mes projets",
+    "contact": "Contactez-moi"
+  },
+  "lang": {
+    "fr": "Français",
+    "en": "Anglais"
+  }
 }

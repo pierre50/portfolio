@@ -34,9 +34,9 @@
       </div>
       <br />
       <div
-        v-if="$te(`${project.id}.description`)"
+        v-if="$te(`projects/${project.id}.description`)"
         class="project-description"
-        v-html="$t(`${project.id}.description`)"
+        v-html="$t(`projects/${project.id}.description`)"
       ></div>
       <div v-if="project.preview" class="project-preview">
         <iframe width="800" height="500" :src="project.preview"></iframe>

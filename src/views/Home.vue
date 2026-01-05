@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <VuePdfEmbed source="/assets/CVPierreNICOLAS.pdf"></VuePdfEmbed>
+    <VuePdfEmbed :source="pdfSource"></VuePdfEmbed>
   </div>
 </template>
 
@@ -9,11 +9,16 @@ import VuePdfEmbed from "vue-pdf-embed";
 
 export default {
   name: "Home",
-  data() {
-    return {};
-  },
   components: {
     VuePdfEmbed,
   },
+  computed: {
+    pdfSource() {
+      // Choisit le PDF selon la langue courante
+      return this.$i18n.locale === 'en'
+        ? '/assets/cv-en.pdf'
+        : '/assets/cv-fr.pdf';
+    }
+  }
 };
 </script>
