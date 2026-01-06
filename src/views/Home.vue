@@ -1,5 +1,5 @@
 <template>
-  <div class="cv-container">
+  <div class="cv-container" ref="contentRef">
     <div v-html="renderedMarkdown" class="markdown-content"></div>
   </div>
 </template>
@@ -8,6 +8,7 @@
 import { computed, ref, watch, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { marked } from "marked";
+import html2pdf from "html2pdf.js";
 
 // Importer les fichiers Markdown
 import cvFR from "../assets/cvfr.md?raw";
@@ -19,6 +20,7 @@ marked.setOptions({
 
 const { locale } = useI18n();
 const markdownContent = ref("");
+const contentRef = ref<HTMLElement | null>(null);
 
 // Détecter la langue
 const pdfSource = computed(() => (locale.value === "fr" ? cvFR : cvEN));
@@ -29,6 +31,24 @@ const renderMarkdown = () => {
 
 // Computed pour transformer en HTML
 const renderedMarkdown = computed(() => marked.parse(markdownContent.value));
+
+const downloadPdf = () => {
+  if (!contentRef.value) return;
+
+  html2pdf(contentRef.value, {
+    filename:
+      locale.value === "fr"
+        ? "CV-Pierre-Nicolas.pdf"
+        : "CV-Pierre-Nicolas-EN.pdf",
+    margin: 10,
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "mm", format: "a4" },
+  });
+};
+
+defineExpose({
+  downloadPdf,
+});
 
 onMounted(() => renderMarkdown());
 

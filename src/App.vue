@@ -50,16 +50,18 @@
         <v-btn
           v-if="$route.name === 'home'"
           icon="mdi-download"
-          href="assets/CVPierreNICOLAS.pdf"
-          download
+          @click="downloadFromChild"
         >
         </v-btn>
       </v-app-bar>
       <v-container fluid>
-        <router-view
-          ref="route"
-          :key="$route.name + ($route.params.id || '')"
-        />
+        <router-view v-slot="{ Component }">
+          <component
+            :is="Component"
+            ref="route"
+            :key="$route.name + ($route.params.id || '')"
+          />
+        </router-view>
       </v-container>
     </v-main>
   </v-app>
@@ -91,6 +93,14 @@ export default {
       ],
       drawer: null,
     };
+  },
+  methods: {
+    downloadFromChild() {
+      const cmp = this.$refs.route;
+      if (cmp?.downloadPdf) {
+        cmp.downloadPdf();
+      }
+    },
   },
   computed: {
     title() {
