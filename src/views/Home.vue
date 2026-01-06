@@ -5,23 +5,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, onMounted } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { marked } from 'marked';
+import { computed, ref, watch, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
+import { marked } from "marked";
 
 // Importer les fichiers Markdown
-import cvFR from '../assets/cvfr.md?raw';
-import cvEN from '../assets/cven.md?raw';
+import cvFR from "../assets/cvfr.md?raw";
+import cvEN from "../assets/cven.md?raw";
 
 marked.setOptions({
   breaks: true, // interprète un retour à la ligne comme <br>
 });
 
 const { locale } = useI18n();
-const markdownContent = ref('');
+const markdownContent = ref("");
 
 // Détecter la langue
-const pdfSource = computed(() => (locale.value === 'fr' ? cvFR : cvEN));
+const pdfSource = computed(() => (locale.value === "fr" ? cvFR : cvEN));
 
 const renderMarkdown = () => {
   markdownContent.value = pdfSource.value;
@@ -60,7 +60,7 @@ watch(locale, () => renderMarkdown());
 }
 
 .markdown-content code {
-  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-family: "Fira Code", Consolas, Monaco, monospace;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: anywhere;
@@ -122,8 +122,8 @@ watch(locale, () => renderMarkdown());
 
 .markdown-content ul,
 .markdown-content ol {
-  margin: 1em 0;      /* remet un margin correct */
-  padding-left: 2em;  /* indentation classique */
+  margin: 1em 0; /* remet un margin correct */
+  padding-left: 2em; /* indentation classique */
   list-style-position: outside;
   list-style-type: disc; /* pour ul */
 }
@@ -137,29 +137,30 @@ watch(locale, () => renderMarkdown());
 }
 
 .markdown-content hr {
-  border: none;             /* retirer les bordures par défaut ou Vuetify */
+  border: none; /* retirer les bordures par défaut ou Vuetify */
   border-top: 1px solid #ccc; /* ligne grise fine */
-  margin: 2em 0;            /* espacement vertical */
+  margin: 2em 0; /* espacement vertical */
 }
 
 .markdown-content h1,
 .markdown-content h2,
 .markdown-content h3 {
-  margin-top: 1em;       /* marge avant le titre */
-  margin-bottom: 0.5em;  /* marge après le titre */
-  font-weight: bold;      /* s'assurer que le texte est en gras */
-  color: #2c3e50;        /* votre couleur */
+  margin-top: 1em; /* marge avant le titre */
+  margin-bottom: 0.5em; /* marge après le titre */
+  font-weight: bold; /* s'assurer que le texte est en gras */
+  color: #2c3e50; /* votre couleur */
 }
 
 .markdown-content h3 {
-  font-size: 1.4em;      /* taille spécifique pour h3 */
-  color: #455a64;        /* couleur spécifique pour h3 */
+  font-size: 1.4em; /* taille spécifique pour h3 */
+  color: #455a64; /* couleur spécifique pour h3 */
 }
 
 /* Responsive */
 @media (max-width: 600px) {
   .cv-container {
     padding: 10px;
+    margin-left: 0;
   }
 
   .markdown-content h1 {
