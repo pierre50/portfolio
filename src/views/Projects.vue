@@ -2,20 +2,17 @@
   <div class="projects">
     <v-card
       v-for="project in projects"
+      :prepend-avatar="getProjectImage(project.id)"
+      :title="project.title"
+      :subtitle="project.technologies.split('|').join(', ')"
       :key="project.id"
       class="mx-auto"
-      style="max-width: 300px; margin: 15px 0"
-      width="300"
       :to="`/project/${project.id}`"
     >
-      <v-img
-        height="200px"
-        gradient="to bottom, rgba(0,0,0,.5), rgba(0,0,0,.1)"
-        cover
-        :src="getProjectImage(project.id)"
-      >
-        <v-card-title class="text-white">{{ project.title }}</v-card-title>
-      </v-img>
+      <v-card-text
+        v-if="$te(`projects.${project.id}.description`)"
+        v-html="$t(`projects.${project.id}.description`)"
+      ></v-card-text>
     </v-card>
   </div>
 </template>
@@ -48,7 +45,11 @@ export default defineComponent({
 <style scoped>
 .projects {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 10px;
+}
+
+.projects > * {
+  width: 100%;
 }
 </style>

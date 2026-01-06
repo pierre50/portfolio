@@ -39,8 +39,6 @@ watch(locale, () => renderMarkdown());
 <style>
 /* Container pour centrer le CV */
 .cv-container {
-  margin-left: 50px;
-  font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 1.6;
   background-color: white;
   color: #333;
@@ -102,7 +100,6 @@ watch(locale, () => renderMarkdown());
 
 .markdown-content h1 {
   font-size: 2.2em;
-  color: #2c3e50;
   border-bottom: 2px solid #eee;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
@@ -111,13 +108,11 @@ watch(locale, () => renderMarkdown());
 
 .markdown-content h2 {
   font-size: 1.8em;
-  color: #34495e;
   margin: 1.5rem 0;
 }
 
 .markdown-content h3 {
   font-size: 1.4em;
-  color: #455a64;
 }
 
 .markdown-content ul,
@@ -148,12 +143,10 @@ watch(locale, () => renderMarkdown());
   margin-top: 1em; /* marge avant le titre */
   margin-bottom: 0.5em; /* marge après le titre */
   font-weight: bold; /* s'assurer que le texte est en gras */
-  color: #2c3e50; /* votre couleur */
 }
 
 .markdown-content h3 {
   font-size: 1.4em; /* taille spécifique pour h3 */
-  color: #455a64; /* couleur spécifique pour h3 */
 }
 
 /* Responsive */

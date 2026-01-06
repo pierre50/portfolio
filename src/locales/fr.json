@@ -1,7 +1,9 @@
 {
   "projects": {
-    "rts": { "description": "" },
-    "kiki": { "description": "" },
+    "rts": {
+            "description": "Recréation d’Age of Empires I réalisée entièrement en JavaScript avec PixiJS, sans moteur de jeu.Le projet reproduit les mécaniques clés du jeu original : carte en tuiles, brouillard de guerre, sélection et déplacement d’unités, récolte de ressources, construction de bâtiments et logique de base de l’IA.Objectif principal : démontrer la maîtrise du rendu 2D, de la gestion de scènes, des performances et de l’architecture d’un moteur de jeu léger construit sur mesure."
+    },
+    "kiki": { "description": "Projet expérimental réalisé avec Babylon.js visant à tester des mécaniques de jeu en environnement 3D. Le monde est généré procéduralement, avec une carte mappée incluant des collines aléatoires et des arbres. Le joueur interagit en cliquant sur le terrain pour déplacer une créature, le déplacement étant calculé via un algorithme de pathfinding A* adapté au relief. Ce projet met en avant la gestion d’un terrain 3D, la navigation intelligente, les interactions souris et l’intégration de logiques de gameplay dans un moteur 3D moderne." },
     "supfile": {
       "description": "Supfile est une application web d'hébergement et de partage de fichiers, ainsi un utilisateur va depuis son navigateur web hébergé des fichiers de tous types ( vidéo, images, texte, ...). Chaque fichier peut être renommé, déplacer et supprimer via une arborescence et il pourra partager ses fichiers via un lien de partage."
     },

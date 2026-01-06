@@ -1,7 +1,7 @@
 {
   "projects": {
-    "rts": { "description": "" },
-    "kiki": { "description": "" },
+    "rts": { "description": "A recreation of Age of Empires I built entirely with JavaScript and PixiJS, without using any game engine. The project implements the core mechanics of the original game: tile-based maps, fog of war, unit selection and movement, resource gathering, building construction, and basic AI logic. The main goal is to showcase strong skills in 2D rendering, scene management, performance optimization, and designing a custom lightweight game engine from scratch." },
+    "kiki": { "description": "An experimental project built with Babylon.js to explore gameplay mechanics in a 3D environment. The world is procedurally generated, featuring a mapped terrain with random hills and trees. The player can click on the ground to move a small creature, with movement handled using an A* pathfinding algorithm adapted to the terrain. This project highlights 3D terrain handling, intelligent navigation, mouse-based interactions, and gameplay logic implementation within a modern 3D engine." },
     "supfile": {
       "description": "Supfile is a web application for hosting and sharing files. Users can upload files of any type (video, images, text, etc.) directly from their browser. Each file can be renamed, moved, or deleted via a file tree, and users can share their files via a shareable link."
     },
