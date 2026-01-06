@@ -10,7 +10,6 @@
       dense
       item-value="value"
     >
-
     </v-select>
   </div>
 </template>
@@ -20,7 +19,10 @@ export default {
   name: "locale-changer",
   data() {
     return {
-      langs: [{value: "fr", title: "Français"}, {value: "en", title: "English"}],
+      langs: [
+        { value: "fr", title: "Français" },
+        { value: "en", title: "English" },
+      ],
     };
   },
 };

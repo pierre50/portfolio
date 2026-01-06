@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <v-navigation-drawer image="/assets/bg.jpeg" app left v-model="drawer">
+    <v-navigation-drawer
+      image="/assets/bg.jpg"
+      app
+      left
+      theme="dark"
+      v-model="drawer"
+    >
       <v-list dense nav>
         <v-list-item
           lines="two"
@@ -43,13 +49,6 @@
         </v-btn>
         <v-btn
           v-if="$route.name === 'home'"
-          icon="mdi-open-in-new"
-          href="assets/CVPierreNICOLAS.pdf"
-          target="_blank"
-        >
-        </v-btn>
-        <v-btn
-          v-if="$route.name === 'home'"
           icon="mdi-download"
           href="assets/CVPierreNICOLAS.pdf"
           download
@@ -67,7 +66,7 @@
 </template>
 
 <script>
-import { projects } from "./constants";
+import { PROJECTS } from "./constants";
 import LocaleChanger from "./components/locale-changer.vue";
 export default {
   data() {
@@ -78,11 +77,6 @@ export default {
           title: "menu.projects",
           icon: "mdi-view-dashboard",
           to: "/projects",
-        },
-        {
-          title: "E-mail",
-          icon: "mdi-email",
-          href: "mailto:tenzin50@hotmail.fr",
         },
         {
           title: "Linkedin",
@@ -103,8 +97,8 @@ export default {
       let isPo = false;
       let text = "";
       if (this.$route.name === "project" && this.$route.params.id) {
-        const project = projects.find(
-          (project) => project.id === this.$route.params.id
+        const project = PROJECTS.find(
+          (project) => project.id === this.$route.params.id,
         );
         if (project) {
           text = project.title;

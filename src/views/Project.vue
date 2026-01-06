@@ -2,7 +2,8 @@
   <div v-if="project">
     <div class="project-content">
       <div v-if="project.type">
-        {{ $t("project.type.default") }}: {{ $t(`project.type.${project.type}`) }}
+        {{ $t("project.type.default") }}:
+        {{ $t(`project.type.${project.type}`) }}
       </div>
       <div v-if="project.year">
         {{ $t("project.year") }}: {{ project.year }}
@@ -16,7 +17,8 @@
         }}
       </div>
       <div v-if="project.status">
-        {{ $t("project.status.default") }}: {{ $t(`project.status.${project.status}`) }}
+        {{ $t("project.status.default") }}:
+        {{ $t(`project.status.${project.status}`) }}
       </div>
       <div v-if="technologies.length">
         {{ $t("project.technologies") }}:
@@ -42,7 +44,11 @@
         <iframe width="800" height="500" :src="project.preview"></iframe>
       </div>
       <div class="project-images">
-        <v-carousel v-if="images.length"  background="#ededed" :show-arrows="false">
+        <v-carousel
+          v-if="images.length"
+          background="#ededed"
+          :show-arrows="false"
+        >
           <v-carousel-item
             v-for="image in images"
             :src="image"
@@ -72,16 +78,17 @@
     {{ $t("project.notfound") }}
   </div>
 </template>
-<script>
-import { projects } from "../constants";
+<script lang="ts">
+import { defineComponent } from "vue";
+import { PROJECTS } from "../constants";
 
-export default {
-  name: "Projet",
+export default defineComponent({
+  name: "Project",
   data() {
     return {
-      project: null,
-      previous: null,
-      next: null,
+      project: null as any,
+      previous: null as any,
+      next: null as any,
     };
   },
   computed: {
@@ -91,23 +98,32 @@ export default {
     nextHref() {
       return this.next ? `/project/${this.next.id}` : "";
     },
-    images() {
-      let images = [];
-      for (let i = 1; i < this.project.image_count + 1; i++) {
-        images.push(require(`@/assets/projects/${this.project.id}/${i}.png`));
+    images(): string[] {
+      if (!this.project) return [];
+
+      // Glob dynamique de toutes les images projets
+      const modules = import.meta.glob("../assets/projects/*/*.png", {
+        eager: true,
+        as: "url",
+      });
+      const imgs: string[] = [];
+
+      for (let i = 1; i <= this.project.image_count; i++) {
+        const key = `../assets/projects/${this.project.id}/${i}.png`;
+        if (modules[key]) imgs.push(modules[key]);
       }
-      return images;
+
+      return imgs;
     },
-    technologies() {
-      return this.project.technologies.split("|");
+    technologies(): string[] {
+      return this.project?.technologies
+        ? this.project.technologies.split("|")
+        : [];
     },
-    links() {
-      if (!this.project.links) {
-        return null;
-      }
-      let links = this.project.links.split(",");
-      links = links.map((link) => {
-        let a = document.createElement("a");
+    links(): string | null {
+      if (!this.project?.links) return null;
+      const links = this.project.links.split(",").map((link: string) => {
+        const a = document.createElement("a");
         a.href = link;
         a.target = "_blank";
         a.innerText = link;
@@ -117,36 +133,24 @@ export default {
     },
   },
   created() {
-    const index = projects.findIndex(
-      (project) => project.id === this.$route.params.id
+    const index = PROJECTS.findIndex(
+      (project) => project.id === this.$route.params.id,
     );
-    this.project = projects[index];
-    this.previous = projects[index - 1] || null;
-    this.next = projects[index + 1] || null;
+    this.project = PROJECTS[index] || null;
+    this.previous = PROJECTS[index - 1] || null;
+    this.next = PROJECTS[index + 1] || null;
   },
-};
+});
 </script>
+
 <style scoped>
-.project-images {
+.project-preview {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  background: whitesmoke;
-}
-.project-description {
-  padding-bottom: 20px;
-}
-.project-preview {
-  display: flex;
-  justify-content: center;
-  border: none;
-  background: whitesmoke;
 }
 .project-preview iframe {
   border: none;
-}
-.project-content {
-  margin-bottom: 40px;
+  border-radius: 3px;
 }
 </style>

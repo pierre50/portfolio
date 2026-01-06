@@ -8,31 +8,43 @@
       width="300"
       :to="`/project/${project.id}`"
     >
-      <v-img height="200px" gradient="to bottom, rgba(0,0,0,.5), rgba(0,0,0,.1)"
-      cover :src="getProjectImage(project.id)"> 
-        <v-card-title class="text-white" >{{ project.title }}</v-card-title>
+      <v-img
+        height="200px"
+        gradient="to bottom, rgba(0,0,0,.5), rgba(0,0,0,.1)"
+        cover
+        :src="getProjectImage(project.id)"
+      >
+        <v-card-title class="text-white">{{ project.title }}</v-card-title>
       </v-img>
     </v-card>
   </div>
 </template>
 
-<script>
-import { projects } from '../constants'
+<script lang="ts">
+import { defineComponent } from "vue";
+import { PROJECTS } from "../constants";
 
-export default {
+const projectImages = import.meta.glob("../assets/projects/*/*.png", {
+  eager: true,
+  as: "url",
+});
+
+export default defineComponent({
   name: "Projects",
   data() {
     return {
-      projects,
+      projects: PROJECTS,
     };
   },
   methods: {
-    getProjectImage(id) {
-      return require(`@/assets/projects/${id}/1.png`);
+    getProjectImage(id: string) {
+      const key = `../assets/projects/${id}/1.png`;
+      return projectImages[key] || "";
     },
   },
-};
+});
 </script>
+
 <style scoped>
 .projects {
   display: flex;
