@@ -69,7 +69,7 @@
 
 <script>
 import { PROJECTS } from "./constants";
-import LocaleChanger from "./components/locale-changer.vue";
+import LocaleChanger from "./components/LocaleChanger.vue";
 export default {
   data() {
     return {

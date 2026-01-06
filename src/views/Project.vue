@@ -1,62 +1,65 @@
 <template>
   <div v-if="project">
     <div class="project-content">
-      <div v-if="project.type">
-        {{ $t("project.type.default") }}:
-        {{ $t(`project.type.${project.type}`) }}
-      </div>
-      <div v-if="project.year">
-        {{ $t("project.year") }}: {{ project.year }}
-      </div>
-      <div v-if="project.length">
-        {{ $t("project.length") }}:
-        {{
-          typeof project.length === "object"
-            ? project.length[$i18n.locale]
-            : project.length
-        }}
-      </div>
-      <div v-if="project.status">
-        {{ $t("project.status.default") }}:
-        {{ $t(`project.status.${project.status}`) }}
-      </div>
-      <div v-if="technologies.length">
-        {{ $t("project.technologies") }}:
-        <v-chip
-          v-for="technology in technologies"
-          :key="technology"
-          class="mr-2"
-        >
-          {{ technology }}
-        </v-chip>
-      </div>
-      <div v-if="links">
-        {{ $t("project.link") }}:
-        <div v-html="links"></div>
-      </div>
-      <br />
-      <div
-        v-if="$te(`projects.${project.id}.description`)"
-        class="project-description"
-        v-html="$t(`projects.${project.id}.description`)"
-      ></div>
       <div v-if="project.preview" class="project-preview">
-        <iframe width="800" height="500" :src="project.preview"></iframe>
+        <iframe width="100%" height="500" :src="project.preview"></iframe>
       </div>
-      <div class="project-images">
-        <v-carousel
-          v-if="images.length"
-          background="#ededed"
-          :show-arrows="false"
+      <div v-if="images.length" class="project-images">
+        <galery :images="images" />
+      </div>
+      <div class="project-description">
+        <DetailRow
+          v-if="project.type"
+          :label="$t('project.type.default')"
+          :value="$t(`project.type.${project.type}`)"
+        />
+        <DetailRow
+          v-if="project.year"
+          :label="$t('project.year')"
+          :value="project.year"
+        />
+        <DetailRow
+          v-if="project.length"
+          :label="$t('project.length')"
+          :value="
+            typeof project.length === 'object'
+              ? project.length[$i18n.locale]
+              : project.length
+          "
+        />
+        <DetailRow
+          v-if="project.status"
+          :label="$t('project.status.default')"
+          :value="$t(`project.status.${project.status}`)"
+        />
+        <DetailRow
+          v-if="technologies.length"
+          :label="$t('project.technologies')"
         >
-          <v-carousel-item
-            v-for="image in images"
-            :src="image"
-            :key="image"
-          ></v-carousel-item>
-        </v-carousel>
+          <span class="technologies">
+            <v-chip
+              v-for="technology in technologies"
+              :key="technology"
+              class="mr-2"
+            >
+              {{ technology }}
+            </v-chip>
+          </span>
+        </DetailRow>
+
+        <DetailRow v-if="links" :label="$t('project.link')">
+          <div v-html="links"></div>
+        </DetailRow>
+
+        <v-divider class="my-4"></v-divider>
+        <div
+          v-if="$te(`projects.${project.id}.description`)"
+          class="project-description"
+          v-html="$t(`projects.${project.id}.description`)"
+        ></div>
       </div>
     </div>
+
     <v-bottom-navigation absolute grow>
       <v-btn :disabled="!previous" :to="previousHref">
         <v-icon>mdi-arrow-left</v-icon>
@@ -81,6 +84,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { PROJECTS } from "../constants";
+import Galery from "../components/Galery.vue";
+import DetailRow from "../components/DetailRow.vue";
 
 export default defineComponent({
   name: "Project",
@@ -140,10 +145,23 @@ export default defineComponent({
     this.previous = PROJECTS[index - 1] || null;
     this.next = PROJECTS[index + 1] || null;
   },
+  components: {
+    Galery,
+    DetailRow,
+  },
 });
 </script>
 
 <style scoped>
+.project-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  > * {
+    flex: 1;
+  }
+}
 .project-preview {
   display: flex;
   align-items: center;
