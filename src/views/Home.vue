@@ -172,7 +172,6 @@ watch(locale, () => renderMarkdown());
 /* Responsive */
 @media (max-width: 600px) {
   .cv-container {
-    padding: 10px;
     margin-left: 0;
   }
 
