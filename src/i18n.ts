@@ -24,9 +24,12 @@ function loadLocaleMessages(): Messages {
   return messages;
 }
 
+const browserLang = (navigator.language || "en").split("-")[0]; // "fr", "en", etc.
+const locale = browserLang === "fr" ? "fr" : "en";
+
 export default createI18n({
   legacy: false,
-  locale: import.meta.env.VITE_I18N_LOCALE || "en",
+  locale: import.meta.env.VITE_I18N_LOCALE || locale,
   fallbackLocale: import.meta.env.VITE_I18N_FALLBACK_LOCALE || "en",
   globalInjection: true,
   messages: loadLocaleMessages(),

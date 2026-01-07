@@ -37,11 +37,7 @@
           :label="$t('project.technologies')"
         >
           <span class="technologies">
-            <v-chip
-              v-for="technology in technologies"
-              :key="technology"
-              class="mr-2"
-            >
+            <v-chip v-for="technology in technologies" :key="technology">
               {{ technology }}
             </v-chip>
           </span>
@@ -60,7 +56,7 @@
       </div>
     </div>
 
-    <v-bottom-navigation absolute grow>
+    <v-bottom-navigation fixed grow>
       <v-btn :disabled="!previous" :to="previousHref">
         <v-icon>mdi-arrow-left</v-icon>
         <span>{{ $t("project.previous") }}</span>
@@ -169,6 +165,17 @@ export default defineComponent({
 }
 .project-preview iframe {
   border: none;
-  border-radius: 3px;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+@media (max-width: 768px) {
+  .project-content {
+    flex-direction: column;
+  }
 }
 </style>

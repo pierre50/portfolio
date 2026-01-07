@@ -66,9 +66,9 @@ export default {
 
 .thumbnail {
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   transition: border 0.2s;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .selected-thumbnail {

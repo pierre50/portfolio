@@ -9,10 +9,12 @@
       class="mx-auto"
       :to="`/project/${project.id}`"
     >
-      <v-card-text
-        v-if="$te(`projects.${project.id}.description`)"
-        v-html="$t(`projects.${project.id}.description`)"
-      ></v-card-text>
+      <v-card-text v-if="$te(`projects.${project.id}.description`)">
+        <div
+          class="ellipsis-multiline"
+          v-html="$t(`projects.${project.id}.description`)"
+        ></div>
+      </v-card-text>
     </v-card>
   </div>
 </template>
@@ -51,5 +53,12 @@ export default defineComponent({
 
 .projects > * {
   width: 100%;
+}
+
+.ellipsis-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 </style>
