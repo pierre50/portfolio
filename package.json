@@ -7,8 +7,7 @@
     "dev": "vite",
     "format": "prettier --write \"src/**/*.{js,ts,vue,css,scss}\"",
     "build": "pnpm run format && vue-tsc -b && vite build",
-    "deploy": "pnpm run build && touch dist/.nojekyll && gh-pages -d dist -b master -r git@github.com:pierre50/pierre50.github.io.git",
-    "preview": "vite preview"
+    "deploy": "pnpm run build && touch dist/.nojekyll && gh-pages -d dist -b master -r git@github.com:pierre50/pierre50.github.io.git --dotfiles",    "preview": "vite preview"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
