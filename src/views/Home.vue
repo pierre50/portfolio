@@ -167,7 +167,6 @@
     </section>
   </div>
 
-  <!-- ── Hidden CV for PDF generation ───────────────────────────── -->
   <div class="cv-hidden" ref="contentRef">
     <div v-html="renderedMarkdown" class="markdown-content" />
   </div>
