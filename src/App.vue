@@ -19,11 +19,11 @@
 
         <v-list-item
           v-for="item in items"
+          :key="item.title"
           :prepend-icon="item.icon"
           :title="$t(item.title)"
           :to="item.to"
-          :value="title"
-          :key="item.title"
+          :value="item.to"
           :href="item.href"
           :target="item.href && '_blank'"
         ></v-list-item>
@@ -39,9 +39,7 @@
           @click.stop="drawer = !drawer"
         ></v-app-bar-nav-icon>
 
-        <v-toolbar-title>{{
-          title.isPo ? $t(title.text) : title.text
-        }}</v-toolbar-title>
+        <v-toolbar-title>{{ title }}</v-toolbar-title>
 
         <v-spacer></v-spacer>
 
@@ -63,8 +61,8 @@
         <router-view v-slot="{ Component }">
           <component
             :is="Component"
-            ref="route"
-            :key="$route.name + ($route.params.id || '')"
+            ref="routeRef"
+            :key="String($route.name) + String($route.params.id || '')"
           />
         </router-view>
       </v-container>
@@ -81,89 +79,52 @@
   </v-app>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 import { PROJECTS } from "./constants";
 import LocaleChanger from "./components/LocaleChanger.vue";
-export default {
-  data() {
-    return {
-      items: [
-        { title: "menu.home", icon: "mdi-home", to: "/" },
-        {
-          title: "menu.projects",
-          icon: "mdi-view-dashboard",
-          to: "/projects",
-        },
-        {
-          title: "Linkedin",
-          icon: "mdi-linkedin",
-          href: "https://www.linkedin.com/in/pierre-nicolas-62b3a9b2/",
-        },
-        {
-          title: "Github",
-          icon: "mdi-github",
-          href: "https://github.com/pierre50",
-        },
-      ],
-      drawer: null,
-      scrollY: 0,
-    };
-  },
-  methods: {
-    downloadFromChild() {
-      const cmp = this.$refs.route;
-      if (cmp?.downloadPdf) {
-        cmp.downloadPdf();
-      }
-    },
-    scrollTop() {
-      const main = this.$refs.mainContainer;
-      if (main) main.$el.scrollTo({ top: 0, behavior: "smooth" });
-      else window.scrollTo({ top: 0, behavior: "smooth" });
-    },
-    handleScroll() {
-      const main = this.$refs.mainContainer;
-      this.scrollY = main ? main.$el.scrollTop : window.scrollY;
-    },
-  },
-  computed: {
-    title() {
-      let isPo = false;
-      let text = "";
-      if (this.$route.name === "project" && this.$route.params.id) {
-        const project = PROJECTS.find(
-          (project) => project.id === this.$route.params.id,
-        );
-        if (project) {
-          text = project.title;
-        } else {
-          text = "Error";
-        }
-      } else {
-        isPo = true;
-        text = "title." + this.$route.name;
-      }
-      return {
-        isPo,
-        text,
-      };
-    },
-  },
-  mounted() {
-    const main = this.$refs.mainContainer;
-    if (main) main.$el.addEventListener("scroll", this.handleScroll);
-    else window.addEventListener("scroll", this.handleScroll);
-  },
-  unmounted() {
-    const main = this.$refs.mainContainer;
-    if (main) main.$el.removeEventListener("scroll", this.handleScroll);
-    else window.removeEventListener("scroll", this.handleScroll);
-  },
-  components: {
-    LocaleChanger,
-  },
-};
+
+const route = useRoute();
+const { t } = useI18n();
+
+const drawer = ref<boolean | null>(null);
+const scrollY = ref(0);
+const routeRef = ref<{ downloadPdf?: () => void } | null>(null);
+
+const items = [
+  { title: "menu.home", icon: "mdi-home", to: "/" },
+  { title: "menu.projects", icon: "mdi-view-dashboard", to: "/projects" },
+  { title: "menu.contact", icon: "mdi-email", to: "/contact" },
+  { title: "Linkedin", icon: "mdi-linkedin", href: "https://www.linkedin.com/in/pierre-nicolas-62b3a9b2/" },
+  { title: "Github", icon: "mdi-github", href: "https://github.com/pierre50" },
+];
+
+const title = computed(() => {
+  if (route.name === "project" && route.params.id) {
+    const project = PROJECTS.find((p) => p.id === route.params.id);
+    return project?.title ?? "Error";
+  }
+  return t(`title.${String(route.name)}`);
+});
+
+function downloadFromChild() {
+  routeRef.value?.downloadPdf?.();
+}
+
+function scrollTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function handleScroll() {
+  scrollY.value = window.scrollY;
+}
+
+onMounted(() => window.addEventListener("scroll", handleScroll));
+onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 </script>
+
 <style>
 .scroll-top-btn {
   position: fixed !important;
@@ -171,6 +132,7 @@ export default {
   right: 24px;
   z-index: 2000;
 }
+
 .drawer-footer {
   padding: 12px;
   text-align: center;

@@ -1,39 +1,33 @@
 <template>
   <div class="locale-changer">
     <v-select
-      rounded
-      v-model="$i18n.locale"
+      v-model="locale"
       variant="plain"
       :items="langs"
-      dark
-      flat
-      dense
       item-value="value"
-    >
-    </v-select>
+    />
   </div>
 </template>
 
-<script>
-export default {
-  name: "locale-changer",
-  data() {
-    return {
-      langs: [
-        { value: "fr", title: "Français" },
-        { value: "en", title: "English" },
-      ],
-    };
-  },
-};
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { locale } = useI18n();
+
+const langs = [
+  { value: "fr", title: "Français" },
+  { value: "en", title: "English" },
+];
 </script>
-<style>
+
+<style scoped>
 .locale-changer {
   position: absolute;
   top: 2px;
   right: 10px;
 }
-.locale-changer span.v-select__selection-text {
+
+.locale-changer :deep(.v-select__selection-text) {
   text-transform: uppercase;
   font-size: 10px;
   margin-top: -8px;
@@ -44,21 +38,26 @@ export default {
   text-overflow: unset;
   font-family: monospace;
 }
-.locale-changer .v-input {
+
+.locale-changer :deep(.v-input) {
   font-size: 11px;
 }
-.locale-changer .v-icon {
+
+.locale-changer :deep(.v-icon) {
   font-size: 14px !important;
   margin-top: 2px !important;
 }
-.locale-changer .v-input__append-inner {
+
+.locale-changer :deep(.v-input__append-inner) {
   align-self: center !important;
 }
-.locale-changer .v-input__icon {
+
+.locale-changer :deep(.v-input__icon) {
   width: 6px;
   min-width: auto;
 }
-.locale-changer .v-list-item {
+
+.locale-changer :deep(.v-list-item) {
   min-height: 20px;
   height: 10px;
 }

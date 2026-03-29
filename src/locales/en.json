@@ -1,5 +1,8 @@
 {
   "projects": {
+    "deviscope": {
+      "description": "Deviscope is an AI-powered SaaS platform for auditing construction quotes and estimating renovation costs. The tool leverages GPT-4o Vision to extract data from PDF quotes, verify contractor compliance via government APIs (SIRENE, BODACC, ADEME), and flag pricing inconsistencies. It features a hybrid calculation engine (AI + deterministic business logic) to simulate accurate renovation budgets, dynamically adjusted with regional price indexing and national cost databases."
+    },
     "rts": { "description": "A recreation of Age of Empires I built entirely with JavaScript and PixiJS, without using any game engine. The project implements the core mechanics of the original game: tile-based maps, fog of war, unit selection and movement, resource gathering, building construction, and basic AI logic. The main goal is to showcase strong skills in 2D rendering, scene management, performance optimization, and designing a custom lightweight game engine from scratch." },
     "kiki": { "description": "An experimental project built with Babylon.js to explore gameplay mechanics in a 3D environment. The world is procedurally generated, featuring a mapped terrain with random hills and trees. The player can click on the ground to move a small creature, with movement handled using an A* pathfinding algorithm adapted to the terrain. This project highlights 3D terrain handling, intelligent navigation, mouse-based interactions, and gameplay logic implementation within a modern 3D engine." },
     "supfile": {
@@ -46,7 +49,8 @@
     "type": {
       "default": "Type",
       "school": "School Project",
-      "personal": "Personal Project"
+      "personal": "Personal Project",
+      "saas": "SaaS Project"
     },
     "year": "Year",
     "length": "Duration",

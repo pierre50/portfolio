@@ -19,13 +19,9 @@
           :value="project.year"
         />
         <DetailRow
-          v-if="project.length"
+          v-if="projectLength"
           :label="$t('project.length')"
-          :value="
-            typeof project.length === 'object'
-              ? project.length[$i18n.locale]
-              : project.length
-          "
+          :value="projectLength"
         />
         <DetailRow
           v-if="project.status"
@@ -33,18 +29,25 @@
           :value="$t(`project.status.${project.status}`)"
         />
         <DetailRow
-          v-if="technologies.length"
+          v-if="project.technologies.length"
           :label="$t('project.technologies')"
         >
           <span class="technologies">
-            <v-chip v-for="technology in technologies" :key="technology">
-              {{ technology }}
+            <v-chip v-for="tech in project.technologies" :key="tech">
+              {{ tech }}
             </v-chip>
           </span>
         </DetailRow>
 
-        <DetailRow v-if="links" :label="$t('project.link')">
-          <div v-html="links"></div>
+        <DetailRow v-if="project.links?.length" :label="$t('project.link')">
+          <div class="links">
+            <a
+              v-for="link in project.links"
+              :key="link"
+              :href="link"
+              target="_blank"
+            >{{ link }}</a>
+          </div>
         </DetailRow>
 
         <v-divider class="my-4"></v-divider>
@@ -77,74 +80,51 @@
     {{ $t("project.notfound") }}
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from "vue";
-import { PROJECTS } from "../constants";
+
+<script setup lang="ts">
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
+import { PROJECTS, type Project } from "../constants";
 import Galery from "../components/Galery.vue";
 import DetailRow from "../components/DetailRow.vue";
 
-export default defineComponent({
-  name: "Project",
-  data() {
-    return {
-      project: null as any,
-      previous: null as any,
-      next: null as any,
-    };
-  },
-  computed: {
-    previousHref() {
-      return this.previous ? `/project/${this.previous.id}` : "";
-    },
-    nextHref() {
-      return this.next ? `/project/${this.next.id}` : "";
-    },
-    images(): string[] {
-      if (!this.project) return [];
+const route = useRoute();
+const { locale } = useI18n();
 
-      // Glob dynamique de toutes les images projets
-      const modules = import.meta.glob("../assets/projects/*/*.png", {
-        eager: true,
-        as: "url",
-      });
-      const imgs: string[] = [];
+const projectImages = import.meta.glob("../assets/projects/*/*.png", {
+  eager: true,
+  as: "url",
+});
 
-      for (let i = 1; i <= this.project.image_count; i++) {
-        const key = `../assets/projects/${this.project.id}/${i}.png`;
-        if (modules[key]) imgs.push(modules[key]);
-      }
+const index = computed(() =>
+  PROJECTS.findIndex((p) => p.id === route.params.id)
+);
+const project = computed<Project | null>(() => PROJECTS[index.value] ?? null);
+const previous = computed<Project | null>(() => PROJECTS[index.value - 1] ?? null);
+const next = computed<Project | null>(() => PROJECTS[index.value + 1] ?? null);
 
-      return imgs;
-    },
-    technologies(): string[] {
-      return this.project?.technologies
-        ? this.project.technologies.split("|")
-        : [];
-    },
-    links(): string | null {
-      if (!this.project?.links) return null;
-      const links = this.project.links.split(",").map((link: string) => {
-        const a = document.createElement("a");
-        a.href = link;
-        a.target = "_blank";
-        a.innerText = link;
-        return a.outerHTML;
-      });
-      return links.join(", ");
-    },
-  },
-  created() {
-    const index = PROJECTS.findIndex(
-      (project) => project.id === this.$route.params.id,
-    );
-    this.project = PROJECTS[index] || null;
-    this.previous = PROJECTS[index - 1] || null;
-    this.next = PROJECTS[index + 1] || null;
-  },
-  components: {
-    Galery,
-    DetailRow,
-  },
+const previousHref = computed(() =>
+  previous.value ? `/project/${previous.value.id}` : ""
+);
+const nextHref = computed(() =>
+  next.value ? `/project/${next.value.id}` : ""
+);
+
+const images = computed(() => {
+  if (!project.value) return [];
+  const imgs: string[] = [];
+  for (let i = 1; i <= project.value.image_count; i++) {
+    const key = `../assets/projects/${project.value.id}/${i}.png`;
+    if (projectImages[key]) imgs.push(projectImages[key] as string);
+  }
+  return imgs;
+});
+
+const projectLength = computed(() => {
+  const len = project.value?.length;
+  if (!len) return null;
+  return typeof len === "object" ? len[locale.value as "fr" | "en"] : len;
 });
 </script>
 
@@ -158,11 +138,13 @@ export default defineComponent({
     flex: 1;
   }
 }
+
 .project-preview {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .project-preview iframe {
   border: none;
 }
@@ -171,6 +153,12 @@ export default defineComponent({
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 @media (max-width: 768px) {

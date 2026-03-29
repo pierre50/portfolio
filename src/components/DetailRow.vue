@@ -1,33 +1,26 @@
 <template>
   <div
     class="detail-row"
-    v-if="
-      (value !== undefined && value !== null && value !== '') || $slots.default
-    "
+    v-if="(value !== undefined && value !== null && value !== '') || $slots.default"
   >
-    <span class="detail-label">
-      {{ label }}
-    </span>
+    <span class="detail-label">{{ label }}</span>
     <div class="detail-value">
       <slot>{{ value }}</slot>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "DetailRow",
-  props: {
-    label: {
-      type: String,
-      default: "",
-    },
-    value: {
-      type: [String, Number, null],
-      default: null,
-    },
-  },
-};
+<script setup lang="ts">
+withDefaults(
+  defineProps<{
+    label?: string;
+    value?: string | number | null;
+  }>(),
+  {
+    label: "",
+    value: null,
+  }
+);
 </script>
 
 <style scoped>
@@ -37,7 +30,7 @@ export default {
 }
 
 .detail-label {
-  width: 150px; /* fixed width */
+  width: 150px;
   color: grey;
   font-weight: 500;
 }

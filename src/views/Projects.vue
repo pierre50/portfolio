@@ -1,26 +1,31 @@
 <template>
   <div class="projects">
     <v-card
-      v-for="project in projects"
-      :prepend-avatar="getProjectImage(project.id)"
-      :title="project.title"
-      :subtitle="project.technologies.split('|').join(', ')"
+      v-for="project in PROJECTS"
       :key="project.id"
-      class="mx-auto"
       :to="`/project/${project.id}`"
+      class="project-card"
     >
-      <v-card-text v-if="$te(`projects.${project.id}.description`)">
-        <div
-          class="ellipsis-multiline"
-          v-html="$t(`projects.${project.id}.description`)"
-        ></div>
+      <v-img :src="getProjectImage(project.id)" height="160" cover />
+      <v-card-title class="text-subtitle-1 font-weight-bold pt-3 pb-1">
+        {{ project.title }}
+      </v-card-title>
+      <v-card-text class="pt-0">
+        <div class="d-flex flex-wrap gap-1">
+          <v-chip
+            v-for="tech in project.technologies"
+            :key="tech"
+            size="x-small"
+            color="primary"
+            variant="tonal"
+          >{{ tech }}</v-chip>
+        </div>
       </v-card-text>
     </v-card>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import { PROJECTS } from "../constants";
 
 const projectImages = import.meta.glob("../assets/projects/*/*.png", {
@@ -28,37 +33,24 @@ const projectImages = import.meta.glob("../assets/projects/*/*.png", {
   as: "url",
 });
 
-export default defineComponent({
-  name: "Projects",
-  data() {
-    return {
-      projects: PROJECTS,
-    };
-  },
-  methods: {
-    getProjectImage(id: string) {
-      const key = `../assets/projects/${id}/1.png`;
-      return projectImages[key] || "";
-    },
-  },
-});
+function getProjectImage(id: string): string {
+  const key = `../assets/projects/${id}/1.png`;
+  return (projectImages[key] as string) || "";
+}
 </script>
 
 <style scoped>
 .projects {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
 }
 
-.projects > * {
-  width: 100%;
+.project-card {
+  transition: transform 0.15s ease;
 }
 
-.ellipsis-multiline {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.project-card:hover {
+  transform: translateY(-3px);
 }
 </style>

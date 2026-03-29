@@ -1,12 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
 
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "home",
-    component: Home,
+    component: () => import("../views/Home.vue"),
   },
   {
     path: "/projects",
@@ -19,6 +18,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../views/Project.vue"),
   },
   {
+    path: "/contact",
+    name: "contact",
+    component: () => import("../views/Contact.vue"),
+  },
+  {
     path: "/:catchAll(.*)",
     redirect: "/",
   },
@@ -27,6 +31,7 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+  scrollBehavior: () => ({ top: 0 }),
 });
 
 export default router;

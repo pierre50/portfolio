@@ -1,12 +1,35 @@
-export const PROJECTS = [
+export interface Project {
+  id: string;
+  title: string;
+  type?: string;
+  year?: string;
+  status?: string;
+  links?: string[];
+  technologies: string[];
+  image_count: number;
+  length?: string | { fr: string; en: string };
+  preview?: string;
+}
+
+export const PROJECTS: Project[] = [
+  {
+    id: "deviscope",
+    title: "Deviscope",
+    type: "saas",
+    year: "2024",
+    status: "completed",
+    links: ["https://deviscope.fr"],
+    technologies: ["Next.js", "Fastify", "Supabase", "OpenAI", "Bull/Redis"],
+    image_count: 4,
+  },
   {
     id: "kiki",
     title: "Kiki",
     type: "personal",
     year: "2022",
     status: "inprogress",
-    links: "https://github.com/pierre50/kiki",
-    technologies: "BabylonJS",
+    links: ["https://github.com/pierre50/kiki"],
+    technologies: ["BabylonJS"],
     image_count: 1,
   },
   {
@@ -16,8 +39,8 @@ export const PROJECTS = [
     year: "2020",
     status: "inprogress",
     preview: "https://pierre50.github.io/RTS-game/",
-    links: "https://github.com/pierre50/RTS-game",
-    technologies: "PixiJS",
+    links: ["https://github.com/pierre50/RTS-game"],
+    technologies: ["PixiJS"],
     image_count: 0,
   },
   {
@@ -27,9 +50,11 @@ export const PROJECTS = [
     year: "2018",
     length: { fr: "6 mois", en: "6 months" },
     status: "finished",
-    links:
-      "https://github.com/pierre50/upload-frontend,https://github.com/pierre50/upload-backend",
-    technologies: "VueJS|ElementUI|Laravel",
+    links: [
+      "https://github.com/pierre50/upload-frontend",
+      "https://github.com/pierre50/upload-backend",
+    ],
+    technologies: ["VueJS", "ElementUI", "Laravel"],
     image_count: 5,
   },
   {
@@ -39,8 +64,8 @@ export const PROJECTS = [
     year: "2018",
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
-    links: "https://github.com/pierre50/awale",
-    technologies: "VueJS|ElementUi",
+    links: ["https://github.com/pierre50/awale"],
+    technologies: ["VueJS", "ElementUi"],
     image_count: 3,
   },
   {
@@ -50,8 +75,8 @@ export const PROJECTS = [
     year: "2018",
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
-    links: "https://github.com/pierre50/Battleship",
-    technologies: "NodeJS|HTML|jQuery|Javascript|Bootstrap|SocketIO",
+    links: ["https://github.com/pierre50/Battleship"],
+    technologies: ["NodeJS", "HTML", "jQuery", "Javascript", "Bootstrap", "SocketIO"],
     image_count: 3,
   },
   {
@@ -61,7 +86,7 @@ export const PROJECTS = [
     year: "2017",
     length: { fr: "1 semaines", en: "1 weeks" },
     status: "finished",
-    technologies: "C#|Universal Windows App|GoogleMap API|OpenWeatherMap API",
+    technologies: ["C#", "Universal Windows App", "GoogleMap API", "OpenWeatherMap API"],
     image_count: 3,
   },
   {
@@ -71,7 +96,7 @@ export const PROJECTS = [
     year: "2017",
     length: { fr: "1 semaines", en: "1 weeks" },
     status: "finished",
-    technologies: "Angular2|HTML|Bootstrap|Javascript|jsPDF|Php",
+    technologies: ["Angular2", "HTML", "Bootstrap", "Javascript", "jsPDF", "Php"],
     image_count: 2,
   },
   {
@@ -81,7 +106,7 @@ export const PROJECTS = [
     year: "2017",
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
-    technologies: "Asp.net|C#|Jamendo API|Javascript|jQuery|Bootstrap",
+    technologies: ["Asp.net", "C#", "Jamendo API", "Javascript", "jQuery", "Bootstrap"],
     image_count: 3,
   },
   {
@@ -91,8 +116,8 @@ export const PROJECTS = [
     year: "2017",
     length: { fr: "6 mois", en: "6 months" },
     status: "finished",
-    links: "https://github.com/pierre50/qwirk",
-    technologies: "NodeJS|Javascript|jQuery|Bootstrap|HTML|WebRTC|SocketIO",
+    links: ["https://github.com/pierre50/qwirk"],
+    technologies: ["NodeJS", "Javascript", "jQuery", "Bootstrap", "HTML", "WebRTC", "SocketIO"],
     image_count: 3,
   },
   {
@@ -102,7 +127,7 @@ export const PROJECTS = [
     year: "2016",
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
-    technologies: "iOS|Qwirk|Core Data",
+    technologies: ["iOS", "Qwirk", "Core Data"],
     image_count: 3,
   },
   {
@@ -112,7 +137,7 @@ export const PROJECTS = [
     year: "2016",
     length: { fr: "1 mois", en: "1 months" },
     status: "finished",
-    technologies: "Java|Servlet|Javascript|jQuery|Bootstrap",
+    technologies: ["Java", "Servlet", "Javascript", "jQuery", "Bootstrap"],
     image_count: 6,
   },
   {
@@ -122,7 +147,7 @@ export const PROJECTS = [
     year: "2016",
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
-    technologies: "Symfony|PHP|HTML|Bootstrap|jQuery|Javascript",
+    technologies: ["Symfony", "PHP", "HTML", "Bootstrap", "jQuery", "Javascript"],
     image_count: 6,
   },
   {
@@ -132,7 +157,7 @@ export const PROJECTS = [
     year: "2015",
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
-    technologies: "CakePhp|PHP|HTML|Bootstrap",
+    technologies: ["CakePhp", "PHP", "HTML", "Bootstrap"],
     image_count: 2,
   },
   {
@@ -142,7 +167,7 @@ export const PROJECTS = [
     year: "2015",
     length: { fr: "4 mois", en: "4 months" },
     status: "aborted",
-    technologies: "GML|Google Game API|Facebook API",
+    technologies: ["GML", "Google Game API", "Facebook API"],
     image_count: 4,
   },
   {
@@ -152,7 +177,7 @@ export const PROJECTS = [
     year: "2015",
     length: { fr: "3 mois", en: "3 months" },
     status: "finished",
-    technologies: "PHP|HTML|Bootstrap",
+    technologies: ["PHP", "HTML", "Bootstrap"],
     image_count: 1,
   },
 ];
