@@ -1,7 +1,9 @@
 <template>
   <div
     class="detail-row"
-    v-if="(value !== undefined && value !== null && value !== '') || $slots.default"
+    v-if="
+      (value !== undefined && value !== null && value !== '') || $slots.default
+    "
   >
     <span class="detail-label">{{ label }}</span>
     <div class="detail-value">
@@ -19,7 +21,7 @@ withDefaults(
   {
     label: "",
     value: null,
-  }
+  },
 );
 </script>
 

@@ -24,7 +24,8 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/:catchAll(.*)",
-    redirect: "/",
+    name: "notfound",
+    component: () => import("../views/NotFound.vue"),
   },
 ];
 

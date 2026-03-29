@@ -1,9 +1,12 @@
+export type ProjectType = "saas" | "personal" | "school";
+export type ProjectStatus = "finished" | "inprogress" | "aborted";
+
 export interface Project {
   id: string;
   title: string;
-  type?: string;
+  type?: ProjectType;
   year?: string;
-  status?: string;
+  status?: ProjectStatus;
   links?: string[];
   technologies: string[];
   image_count: number;
@@ -17,20 +20,10 @@ export const PROJECTS: Project[] = [
     title: "Deviscope",
     type: "saas",
     year: "2024",
-    status: "completed",
+    status: "finished",
     links: ["https://deviscope.fr"],
     technologies: ["Next.js", "Fastify", "Supabase", "OpenAI", "Bull/Redis"],
     image_count: 4,
-  },
-  {
-    id: "kiki",
-    title: "Kiki",
-    type: "personal",
-    year: "2022",
-    status: "inprogress",
-    links: ["https://github.com/pierre50/kiki"],
-    technologies: ["BabylonJS"],
-    image_count: 1,
   },
   {
     id: "rts",
@@ -42,6 +35,16 @@ export const PROJECTS: Project[] = [
     links: ["https://github.com/pierre50/RTS-game"],
     technologies: ["PixiJS"],
     image_count: 0,
+  },
+  {
+    id: "kiki",
+    title: "Kiki",
+    type: "personal",
+    year: "2022",
+    status: "aborted",
+    links: ["https://github.com/pierre50/kiki"],
+    technologies: ["BabylonJS"],
+    image_count: 1,
   },
   {
     id: "supfile",
@@ -76,7 +79,14 @@ export const PROJECTS: Project[] = [
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
     links: ["https://github.com/pierre50/Battleship"],
-    technologies: ["NodeJS", "HTML", "jQuery", "Javascript", "Bootstrap", "SocketIO"],
+    technologies: [
+      "NodeJS",
+      "HTML",
+      "jQuery",
+      "Javascript",
+      "Bootstrap",
+      "SocketIO",
+    ],
     image_count: 3,
   },
   {
@@ -86,7 +96,12 @@ export const PROJECTS: Project[] = [
     year: "2017",
     length: { fr: "1 semaines", en: "1 weeks" },
     status: "finished",
-    technologies: ["C#", "Universal Windows App", "GoogleMap API", "OpenWeatherMap API"],
+    technologies: [
+      "C#",
+      "Universal Windows App",
+      "GoogleMap API",
+      "OpenWeatherMap API",
+    ],
     image_count: 3,
   },
   {
@@ -96,7 +111,14 @@ export const PROJECTS: Project[] = [
     year: "2017",
     length: { fr: "1 semaines", en: "1 weeks" },
     status: "finished",
-    technologies: ["Angular2", "HTML", "Bootstrap", "Javascript", "jsPDF", "Php"],
+    technologies: [
+      "Angular2",
+      "HTML",
+      "Bootstrap",
+      "Javascript",
+      "jsPDF",
+      "Php",
+    ],
     image_count: 2,
   },
   {
@@ -106,7 +128,14 @@ export const PROJECTS: Project[] = [
     year: "2017",
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
-    technologies: ["Asp.net", "C#", "Jamendo API", "Javascript", "jQuery", "Bootstrap"],
+    technologies: [
+      "Asp.net",
+      "C#",
+      "Jamendo API",
+      "Javascript",
+      "jQuery",
+      "Bootstrap",
+    ],
     image_count: 3,
   },
   {
@@ -117,7 +146,15 @@ export const PROJECTS: Project[] = [
     length: { fr: "6 mois", en: "6 months" },
     status: "finished",
     links: ["https://github.com/pierre50/qwirk"],
-    technologies: ["NodeJS", "Javascript", "jQuery", "Bootstrap", "HTML", "WebRTC", "SocketIO"],
+    technologies: [
+      "NodeJS",
+      "Javascript",
+      "jQuery",
+      "Bootstrap",
+      "HTML",
+      "WebRTC",
+      "SocketIO",
+    ],
     image_count: 3,
   },
   {
@@ -147,7 +184,14 @@ export const PROJECTS: Project[] = [
     year: "2016",
     length: { fr: "2 semaines", en: "2 weeks" },
     status: "finished",
-    technologies: ["Symfony", "PHP", "HTML", "Bootstrap", "jQuery", "Javascript"],
+    technologies: [
+      "Symfony",
+      "PHP",
+      "HTML",
+      "Bootstrap",
+      "jQuery",
+      "Javascript",
+    ],
     image_count: 6,
   },
   {

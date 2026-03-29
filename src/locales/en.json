@@ -48,6 +48,7 @@
   "project": {
     "type": {
       "default": "Type",
+      "all": "All",
       "school": "School Project",
       "personal": "Personal Project",
       "saas": "SaaS Project"
@@ -67,6 +68,21 @@
     "goback": "Project List",
     "notfound": "Project not found"
   },
+  "about": {
+    "bio": "Lead Full Stack Developer with over 7 years of experience designing, scaling and securing complex, business-critical web applications. Strong expertise in modern JavaScript architectures (React, Node.js, TypeScript), large-scale codebase structuring and automation of critical business processes.",
+    "current": "Lead Dev · Alf · since 2022",
+    "experience": "Experience",
+    "featured": "Featured Projects",
+    "seeall": "See all projects",
+    "skills": "Skills",
+    "available": "Open to opportunities"
+  },
+  "stats": {
+    "years": "Years of exp.",
+    "companies": "Companies",
+    "projects": "Projects",
+    "technologies": "Technologies"
+  },
   "job": "Full Stack Developer",
   "downloadcv": "Download CV",
   "menu": {
@@ -77,6 +93,17 @@
   "title": {
     "home": "About Me",
     "projects": "My Projects",
-    "contact": "Contact Me"
+    "contact": "Contact Me",
+    "notfound": "Page not found"
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "sub": "I'm always open to new opportunities, collaborations, or just a chat.",
+    "copy": "Click to copy",
+    "copied": "Email copied!"
+  },
+  "notfound": {
+    "message": "This page doesn't exist.",
+    "back": "Back to home"
   }
 }

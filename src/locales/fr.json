@@ -50,6 +50,7 @@
   "project": {
     "type": {
       "default": "Type",
+      "all": "Tous",
       "school": "Projet d'école",
       "personal": "Projet personnel",
       "saas": "Projet SaaS"
@@ -69,6 +70,15 @@
     "goback": "Liste des projets",
     "notfound": "Projet introuvable"
   },
+  "about": {
+    "bio": "Lead développeur full stack avec plus de 7 ans d'expérience dans la conception, l'évolution et la sécurisation d'applications web à fort enjeu métier. Spécialisé dans les architectures JavaScript modernes (React, Node.js, TypeScript), la structuration de codebases à grande échelle et l'automatisation de processus critiques.",
+    "current": "Lead Dev · Alf · depuis 2022",
+    "experience": "Expériences",
+    "featured": "Projets récents",
+    "seeall": "Voir tous les projets",
+    "skills": "Compétences",
+    "available": "Disponible"
+  },
   "job": "Développeur Full Stack",
   "downloadcv": "Télécharger le CV",
   "menu": {
@@ -79,6 +89,23 @@
   "title": {
     "home": "À Propos",
     "projects": "Mes projets",
-    "contact": "Contactez-moi"
+    "contact": "Contactez-moi",
+    "notfound": "Page introuvable"
+  },
+  "stats": {
+    "years": "Ans d'expérience",
+    "companies": "Entreprises",
+    "projects": "Projets",
+    "technologies": "Technologies"
+  },
+  "contact": {
+    "title": "Travaillons ensemble",
+    "sub": "Je suis toujours ouvert à de nouvelles opportunités, collaborations ou simplement échanger.",
+    "copy": "Cliquer pour copier",
+    "copied": "Email copié !"
+  },
+  "notfound": {
+    "message": "Cette page n'existe pas.",
+    "back": "Retour à l'accueil"
   }
 }
