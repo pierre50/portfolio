@@ -222,31 +222,37 @@ const skills = [
 
 const md = new Marked({ async: false, breaks: true });
 
-const renderedMarkdown = computed(() =>
-  md.parse(generateCvMarkdown(locale.value as "fr" | "en")) as string
+const renderedMarkdown = computed(
+  () => md.parse(generateCvMarkdown(locale.value as "fr" | "en")) as string,
 );
 
 const downloadPdf = async () => {
-  if (!contentRef.value) return;
+  const el = contentRef.value;
+  if (!el) return;
+
   const html2pdf = (await import("html2pdf.js")).default;
 
-  // Rendre visible le temps de la capture
-  contentRef.value.style.position = "static";
-  contentRef.value.style.left = "auto";
+  el.style.position = "static";
+  el.style.left = "auto";
 
-  await html2pdf(contentRef.value, {
-    filename:
-      locale.value === "fr"
-        ? "CV-Pierre-Nicolas.pdf"
-        : "CV-Pierre-Nicolas-EN.pdf",
-    margin: 10,
-    html2canvas: { scale: 2, useCORS: true },
-    jsPDF: { unit: "mm", format: "a4" },
-  }).output("blob"); // attendre la fin
+  await new Promise<void>((resolve) => {
+    html2pdf()
+      .set({
+        filename:
+          locale.value === "fr"
+            ? "CV-Pierre-Nicolas.pdf"
+            : "CV-Pierre-Nicolas-EN.pdf",
+        margin: 10,
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: "mm", format: "a4" },
+      })
+      .from(el)
+      .save()
+      .then(resolve);
+  });
 
-  // Remettre hors écran
-  contentRef.value.style.position = "fixed";
-  contentRef.value.style.left = "-9999px";
+  el.style.position = "fixed";
+  el.style.left = "-9999px";
 };
 
 defineExpose({ downloadPdf });
