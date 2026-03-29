@@ -1,6 +1,5 @@
 <template>
   <div v-if="project" class="project-page">
-    <!-- ── Nav ──────────────────────────────────────────────────────── -->
     <nav class="project-nav" v-reveal>
       <router-link to="/projects" class="back-link">
         <v-icon size="15">mdi-arrow-left</v-icon>
