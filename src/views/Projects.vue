@@ -67,7 +67,8 @@ import { PROJECTS } from "../constants";
 
 const projectImages = import.meta.glob("../assets/projects/*/*.png", {
   eager: true,
-  as: "url",
+  query: "?url",
+  import: "default",
 });
 
 const filterTypes = ["all", "saas", "personal", "school"] as const;

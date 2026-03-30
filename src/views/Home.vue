@@ -192,7 +192,8 @@ const featuredProjects = computed(() => PROJECTS.slice(0, 3));
 
 const projectImages = import.meta.glob("../assets/projects/*/*.png", {
   eager: true,
-  as: "url",
+  query: "?url",
+  import: "default",
 });
 
 function getProjectImage(id: string): string {
