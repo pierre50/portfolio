@@ -16,7 +16,7 @@
         <span class="drawer-job">{{ $t("job") }}</span>
       </div>
 
-      <v-divider style="border-color: rgba(100, 255, 218, 0.1)" />
+      <v-divider style="border-color: var(--c-accent-10)" />
 
       <v-list dense nav>
         <v-list-item
@@ -254,7 +254,7 @@ body,
   top: 0;
   left: 0;
   height: 2px;
-  background: linear-gradient(to right, #64ffda, #7c3aed);
+  background: linear-gradient(to right, var(--c-accent), var(--c-purple));
   z-index: 9999;
   transition: width 0.1s linear;
   pointer-events: none;
@@ -266,16 +266,16 @@ body,
   background: rgba(10, 14, 23, 0.88) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(100, 255, 218, 0.08) !important;
+  border-bottom: 1px solid var(--c-accent-08) !important;
   box-shadow: none !important;
 }
 
 /* ── Brand logo ───────────────────────────────────────────────── */
 .brand-link {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 1.1rem;
   font-weight: 700;
-  color: #64ffda;
+  color: var(--c-accent);
   text-decoration: none;
   letter-spacing: -0.02em;
   transition: opacity 0.2s;
@@ -286,7 +286,7 @@ body,
 }
 
 .brand-bracket {
-  color: #7c3aed;
+  color: var(--c-purple);
 }
 
 /* ── Desktop nav ──────────────────────────────────────────────── */
@@ -297,9 +297,9 @@ body,
 }
 
 .nav-link {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #8892b0;
+  color: var(--c-muted);
   text-decoration: none;
   transition: color 0.2s;
   display: flex;
@@ -308,13 +308,13 @@ body,
 }
 
 .nav-link .nav-num {
-  color: #64ffda;
+  color: var(--c-accent);
   font-size: 0.72rem;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #64ffda;
+  color: var(--c-accent);
 }
 
 /* ── External icon links ──────────────────────────────────────── */
@@ -330,7 +330,7 @@ body,
   justify-content: center;
   width: 36px;
   height: 36px;
-  color: #8892b0;
+  color: var(--c-muted);
   text-decoration: none;
   border-radius: 6px;
   transition:
@@ -339,13 +339,13 @@ body,
 }
 
 .ext-icon-link:hover {
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.08);
+  color: var(--c-accent);
+  background: var(--c-accent-08);
 }
 
 /* ── Main area ────────────────────────────────────────────────── */
 .site-main {
-  background: #0a0e17;
+  background: var(--c-bg);
   min-height: 100vh;
   position: relative;
 }
@@ -354,7 +354,7 @@ body,
   position: fixed;
   inset: 0;
   background-image: radial-gradient(
-    rgba(100, 255, 218, 0.04) 1px,
+    var(--c-accent-04) 1px,
     transparent 1px
   );
   background-size: 32px 32px;
@@ -378,10 +378,10 @@ body,
   z-index: 2000;
   width: 40px;
   height: 40px;
-  border-radius: 8px;
+  border-radius: var(--r-btn);
   border: 1px solid rgba(100, 255, 218, 0.3);
   background: rgba(10, 14, 23, 0.9);
-  color: #64ffda;
+  color: var(--c-accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -393,8 +393,8 @@ body,
 }
 
 .scroll-top-btn:hover {
-  background: rgba(100, 255, 218, 0.12);
-  border-color: #64ffda;
+  background: var(--c-accent-12);
+  border-color: var(--c-accent);
 }
 
 /* ── Keyboard shortcuts hint ──────────────────────────────────── */
@@ -418,9 +418,9 @@ body,
   display: flex;
   align-items: center;
   gap: 5px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.62rem;
-  color: #8892b0;
+  color: var(--c-muted);
 }
 
 .kb-key {
@@ -429,20 +429,20 @@ body,
   justify-content: center;
   width: 18px;
   height: 18px;
-  border: 1px solid rgba(136, 146, 176, 0.25);
+  border: 1px solid var(--c-muted-25);
   border-bottom-width: 2px;
-  border-radius: 3px;
-  font-family: "JetBrains Mono", monospace;
+  border-radius: var(--r-tag);
+  font-family: var(--font-mono);
   font-size: 0.58rem;
   font-weight: 600;
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.04);
+  color: var(--c-accent);
+  background: var(--c-accent-04);
 }
 
 /* ── Mobile drawer ────────────────────────────────────────────── */
 .mobile-drawer.v-navigation-drawer {
-  background: #0d1219 !important;
-  border-right: 1px solid rgba(100, 255, 218, 0.08) !important;
+  background: var(--c-bg-darker) !important;
+  border-right: 1px solid var(--c-accent-08) !important;
 }
 
 .drawer-header {
@@ -453,16 +453,16 @@ body,
 }
 
 .drawer-logo {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 1.2rem;
   font-weight: 700;
-  color: #64ffda;
+  color: var(--c-accent);
 }
 
 .drawer-job {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #8892b0;
+  color: var(--c-muted);
 }
 
 .drawer-locale {
@@ -472,9 +472,9 @@ body,
 .drawer-footer {
   padding: 12px;
   text-align: center;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
-  color: #374151;
+  color: var(--c-footer);
   position: absolute;
   bottom: 0;
   width: 100%;

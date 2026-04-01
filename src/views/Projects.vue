@@ -17,6 +17,12 @@
         {{ $t(`project.type.${type}`) }}
         <span class="filter-count">{{ getCount(type) }}</span>
       </button>
+      <input
+        v-model="techSearch"
+        class="tech-search"
+        :placeholder="$t('project.searchTech')"
+        type="search"
+      />
     </div>
 
     <div class="projects-grid" v-reveal="{ delay: '0.1s' }">
@@ -63,7 +69,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { PROJECTS } from "../constants";
+import { PROJECTS } from "../constants/projects";
 
 const projectImages = import.meta.glob("../assets/projects/*/*.png", {
   eager: true,
@@ -75,12 +81,19 @@ const filterTypes = ["all", "saas", "personal", "school"] as const;
 type FilterType = (typeof filterTypes)[number];
 
 const activeFilter = ref<FilterType>("all");
+const techSearch = ref("");
 
-const filtered = computed(() =>
-  activeFilter.value === "all"
-    ? PROJECTS
-    : PROJECTS.filter((p) => p.type === activeFilter.value),
-);
+const filtered = computed(() => {
+  const byType =
+    activeFilter.value === "all"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.type === activeFilter.value);
+  const q = techSearch.value.trim().toLowerCase();
+  if (!q) return byType;
+  return byType.filter((p) =>
+    p.technologies.some((t) => t.toLowerCase().includes(q)),
+  );
+});
 
 function getCount(type: FilterType) {
   if (type === "all") return PROJECTS.length;
@@ -104,14 +117,14 @@ function getProjectImage(id: string): string {
 }
 
 .page-label {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
-  color: #8892b0;
+  color: var(--c-muted);
   margin: 0;
 }
 
 .label-num {
-  color: #64ffda;
+  color: var(--c-accent);
 }
 
 /* ── Filter bar ───────────────────────────────────────────────── */
@@ -119,13 +132,13 @@ function getProjectImage(id: string): string {
   display: flex;
   gap: 0;
   margin-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(100, 255, 218, 0.08);
+  border-bottom: 1px solid var(--c-accent-08);
 }
 
 .filter-btn {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: #8892b0;
+  color: var(--c-muted);
   background: none;
   border: none;
   padding: 10px 18px;
@@ -141,17 +154,41 @@ function getProjectImage(id: string): string {
 }
 
 .filter-btn:hover {
-  color: #ccd6f6;
+  color: var(--c-text);
 }
 
 .filter-btn.active {
-  color: #64ffda;
-  border-bottom-color: #64ffda;
+  color: var(--c-accent);
+  border-bottom-color: var(--c-accent);
 }
 
 .filter-count {
   font-size: 0.68rem;
   opacity: 0.55;
+}
+
+.tech-search {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--c-text);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 0 10px 8px;
+  outline: none;
+  width: 160px;
+  transition: border-color 0.2s, width 0.2s;
+}
+
+.tech-search::placeholder {
+  color: var(--c-muted);
+  opacity: 0.6;
+}
+
+.tech-search:focus {
+  border-bottom-color: var(--c-accent);
+  width: 200px;
 }
 
 /* ── Grid ─────────────────────────────────────────────────────── */
@@ -163,9 +200,9 @@ function getProjectImage(id: string): string {
 
 /* ── Card ─────────────────────────────────────────────────────── */
 .project-card {
-  background: #111827;
-  border: 1px solid rgba(100, 255, 218, 0.06);
-  border-radius: 10px;
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-accent-06);
+  border-radius: var(--r-card);
   overflow: hidden;
   text-decoration: none;
   transition:
@@ -178,15 +215,15 @@ function getProjectImage(id: string): string {
 
 .project-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(100, 255, 218, 0.25);
-  box-shadow: 0 8px 32px rgba(100, 255, 218, 0.07);
+  border-color: var(--c-accent-25);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .card-image-wrap {
   position: relative;
   height: 160px;
   overflow: hidden;
-  background: #1a2540;
+  background: var(--c-bg-card-img);
 }
 
 .card-image {
@@ -229,7 +266,7 @@ function getProjectImage(id: string): string {
 .card-title {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #ccd6f6;
+  color: var(--c-text);
   margin: 0;
   line-height: 1.3;
 }
@@ -241,18 +278,18 @@ function getProjectImage(id: string): string {
 }
 
 .tech-tag {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.06);
-  border: 1px solid rgba(100, 255, 218, 0.14);
-  border-radius: 3px;
+  color: var(--c-accent);
+  background: var(--c-accent-06);
+  border: 1px solid var(--c-accent-14);
+  border-radius: var(--r-tag);
   padding: 2px 8px;
 }
 
 .tech-more {
-  color: #8892b0;
-  border-color: rgba(136, 146, 176, 0.14);
-  background: rgba(136, 146, 176, 0.06);
+  color: var(--c-muted);
+  border-color: var(--c-muted-14);
+  background: var(--c-muted-06);
 }
 </style>

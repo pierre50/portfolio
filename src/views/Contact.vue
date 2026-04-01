@@ -8,6 +8,11 @@
       <p class="contact-sub">{{ $t("contact.sub") }}</p>
     </div>
 
+    <a class="cta-btn" href="mailto:tenzin50@hotmail.fr" v-reveal="{ delay: '0.02s' }">
+      <v-icon size="18" class="me-2">mdi-email-fast-outline</v-icon>
+      {{ $t("contact.cta") }}
+    </a>
+
     <div class="contact-links">
       <!-- Email — copies to clipboard -->
       <button
@@ -95,20 +100,20 @@ async function copyEmail() {
 }
 
 .page-label {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
-  color: #8892b0;
+  color: var(--c-muted);
   margin: 0 0 1.25rem;
 }
 
 .label-num {
-  color: #64ffda;
+  color: var(--c-accent);
 }
 
 .contact-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  color: #ccd6f6;
+  color: var(--c-text);
   margin: 0 0 0.75rem;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -116,9 +121,31 @@ async function copyEmail() {
 
 .contact-sub {
   font-size: 1rem;
-  color: #8892b0;
+  color: var(--c-muted);
   margin: 0 0 3rem;
   line-height: 1.75;
+}
+
+/* ── CTA ──────────────────────────────────────────────────────── */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--c-bg, #0d1117);
+  background: var(--c-accent);
+  border-radius: 8px;
+  padding: 12px 28px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cta-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
 }
 
 /* ── Cards ────────────────────────────────────────────────────── */
@@ -133,9 +160,9 @@ async function copyEmail() {
   align-items: center;
   gap: 1.25rem;
   padding: 20px 24px;
-  background: #111827;
-  border: 1px solid rgba(100, 255, 218, 0.06);
-  border-radius: 10px;
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-accent-06);
+  border-radius: var(--r-card);
   text-decoration: none;
   cursor: pointer;
   width: 100%;
@@ -147,27 +174,27 @@ async function copyEmail() {
 }
 
 .contact-card:hover {
-  border-color: rgba(100, 255, 218, 0.25);
-  background: rgba(100, 255, 218, 0.02);
+  border-color: var(--c-accent-25);
+  background: var(--c-accent-02);
   transform: translateX(4px);
 }
 
 .contact-icon {
   width: 48px;
   height: 48px;
-  border-radius: 8px;
-  background: rgba(100, 255, 218, 0.06);
-  border: 1px solid rgba(100, 255, 218, 0.12);
+  border-radius: var(--r-btn);
+  background: var(--c-accent-06);
+  border: 1px solid var(--c-accent-12);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64ffda;
+  color: var(--c-accent);
   flex-shrink: 0;
   transition: background 0.2s;
 }
 
 .contact-card:hover .contact-icon {
-  background: rgba(100, 255, 218, 0.12);
+  background: var(--c-accent-12);
 }
 
 .contact-info {
@@ -180,19 +207,19 @@ async function copyEmail() {
 .contact-label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #ccd6f6;
+  color: var(--c-text);
 }
 
 .contact-value {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #8892b0;
+  color: var(--c-muted);
 }
 
 .contact-action {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #64ffda;
+  color: var(--c-accent);
   opacity: 0;
   transform: translateX(-4px);
   transition:
@@ -207,7 +234,7 @@ async function copyEmail() {
 }
 
 .contact-arrow {
-  color: #8892b0;
+  color: var(--c-muted);
   opacity: 0;
   transform: translateX(-6px);
   transition:
@@ -219,7 +246,7 @@ async function copyEmail() {
 .contact-card:hover .contact-arrow {
   opacity: 1;
   transform: translateX(0);
-  color: #64ffda;
+  color: var(--c-accent);
 }
 
 /* ── Copy toast ───────────────────────────────────────────────── */
@@ -232,12 +259,12 @@ async function copyEmail() {
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: #111827;
-  border: 1px solid rgba(100, 255, 218, 0.25);
-  border-radius: 8px;
-  font-family: "JetBrains Mono", monospace;
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-accent-25);
+  border-radius: var(--r-btn);
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #64ffda;
+  color: var(--c-accent);
   backdrop-filter: blur(12px);
   z-index: 3000;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);

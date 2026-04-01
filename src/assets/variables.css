@@ -1,0 +1,48 @@
+/* ── Design tokens ────────────────────────────────────────────── */
+:root {
+  /* Fonts */
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Solid colors */
+  --c-accent:       #64ffda;
+  --c-text:         #ccd6f6;
+  --c-muted:        #8892b0;
+  --c-purple:       #7c3aed;
+  --c-warn:         #ffd166;
+  --c-danger:       #ff6b6b;
+  --c-bg:           #0a0e17;
+  --c-bg-darker:    #0d1219;
+  --c-bg-card:      #111827;
+  --c-bg-card-img:  #1a2540;
+  --c-footer:       #374151;
+
+  /* Accent with alpha */
+  --c-accent-02: rgba(100, 255, 218, 0.02);
+  --c-accent-04: rgba(100, 255, 218, 0.04);
+  --c-accent-05: rgba(100, 255, 218, 0.05);
+  --c-accent-06: rgba(100, 255, 218, 0.06);
+  --c-accent-07: rgba(100, 255, 218, 0.07);
+  --c-accent-08: rgba(100, 255, 218, 0.08);
+  --c-accent-10: rgba(100, 255, 218, 0.1);
+  --c-accent-12: rgba(100, 255, 218, 0.12);
+  --c-accent-14: rgba(100, 255, 218, 0.14);
+  --c-accent-20: rgba(100, 255, 218, 0.2);
+  --c-accent-25: rgba(100, 255, 218, 0.25);
+  --c-accent-40: rgba(100, 255, 218, 0.4);
+  --c-accent-50: rgba(100, 255, 218, 0.5);
+  --c-accent-60: rgba(100, 255, 218, 0.6);
+
+  /* Shadows */
+  --shadow-card-hover: 0 8px 32px var(--c-accent-07);
+
+  /* Border radius */
+  --r-tag:    3px;
+  --r-badge:  4px;
+  --r-btn:    8px;
+  --r-card:   10px;
+
+  /* Muted with alpha */
+  --c-muted-06: rgba(136, 146, 176, 0.06);
+  --c-muted-14: rgba(136, 146, 176, 0.14);
+  --c-muted-25: rgba(136, 146, 176, 0.25);
+}

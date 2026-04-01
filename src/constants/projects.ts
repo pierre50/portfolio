@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     preview: "https://pierre50.github.io/RTS-game/",
     links: ["https://github.com/pierre50/RTS-game"],
     technologies: ["PixiJS"],
-    image_count: 0,
+    image_count: 1,
   },
   {
     id: "kiki",

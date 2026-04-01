@@ -1,4 +1,5 @@
 export const AVAILABLE = true;
+export const CAREER_START_YEAR = 2017;
 
 export interface PersonalInfo {
   name: string;
@@ -74,15 +75,15 @@ export const SKILLS: SkillGroup[] = [
   {
     label: { fr: "Front-end", en: "Front-End" },
     items: {
-      fr: "React, Vue.js, architecture front-end scalable, refonte d'interfaces complexes, formulaires dynamiques avancés, visualisation de données, librairies graphiques, UX orientée produit",
-      en: "React, Vue.js, scalable front-end architectures, complex UI refactoring, advanced dynamic forms, data visualization, charting libraries, product-oriented UX",
+      fr: "React, Next.js, Vue.js, architecture front-end scalable, refonte d'interfaces complexes, formulaires dynamiques avancés, visualisation de données, librairies graphiques, UX orientée produit",
+      en: "React, Next.js, Vue.js, scalable front-end architectures, complex UI refactoring, advanced dynamic forms, data visualization, charting libraries, product-oriented UX",
     },
   },
   {
     label: { fr: "Back-end", en: "Back-End" },
     items: {
-      fr: "Node.js, GraphQL / GraphQL Yoga, Fastify, conception d'API sécurisées, gestion de workers, traitements asynchrones, génération de documents (PDF, XML), optimisation des performances",
-      en: "Node.js, GraphQL / GraphQL Yoga, Fastify, secure API design, worker management, asynchronous processing, document generation (PDF, XML), performance optimization",
+      fr: "Node.js, GraphQL / GraphQL Yoga, Fastify, Bull/Redis, conception d'API sécurisées, gestion de workers, traitements asynchrones, génération de documents (PDF, XML), optimisation des performances",
+      en: "Node.js, GraphQL / GraphQL Yoga, Fastify, Bull/Redis, secure API design, worker management, asynchronous processing, document generation (PDF, XML), performance optimization",
     },
   },
   {
@@ -102,8 +103,8 @@ export const SKILLS: SkillGroup[] = [
   {
     label: { fr: "Intégrations", en: "Integrations" },
     items: {
-      fr: "Stripe, DocuSign, services tiers métier",
-      en: "Stripe, DocuSign, third-party business services",
+      fr: "Stripe, DocuSign, Supabase, OpenAI, services tiers métier",
+      en: "Stripe, DocuSign, Supabase, OpenAI, third-party business services",
     },
   },
 ];
@@ -214,6 +215,20 @@ export const PROJECTS: Project[] = [
       },
     ],
   },
+];
+
+export const SKILLS_FLAT: string[] = [
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Vue.js",
+  "Node.js",
+  "GraphQL",
+  "Fastify",
+  "Bull/Redis",
+  "HTML5",
+  "CSS3",
 ];
 
 export const EDUCATION: Education[] = [

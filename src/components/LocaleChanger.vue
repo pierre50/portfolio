@@ -11,19 +11,20 @@ const { locale } = useI18n();
 
 function toggle() {
   locale.value = locale.value === "fr" ? "en" : "fr";
+  localStorage.setItem("locale", locale.value);
 }
 </script>
 
 <style scoped>
 .locale-btn {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.05);
-  border: 1px solid rgba(100, 255, 218, 0.2);
-  border-radius: 4px;
+  color: var(--c-accent);
+  background: var(--c-accent-05);
+  border: 1px solid var(--c-accent-20);
+  border-radius: var(--r-badge);
   padding: 4px 10px;
   cursor: pointer;
   transition:
@@ -33,7 +34,7 @@ function toggle() {
 }
 
 .locale-btn:hover {
-  background: rgba(100, 255, 218, 0.12);
-  border-color: rgba(100, 255, 218, 0.5);
+  background: var(--c-accent-12);
+  border-color: var(--c-accent-50);
 }
 </style>

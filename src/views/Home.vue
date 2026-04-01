@@ -7,7 +7,7 @@
           <span class="avail-dot" />
           {{ $t("about.available") }}
         </div>
-        <p class="hero-greeting"><span class="prompt">&gt;</span> Hi, I'm</p>
+        <p class="hero-greeting"><span class="prompt">&gt;</span> {{ $t("about.greeting") }}</p>
         <h1 class="hero-name">Pierre Nicolas.</h1>
         <h2 class="hero-role">{{ $t("job") }}</h2>
         <p class="hero-bio">{{ $t("about.bio") }}</p>
@@ -160,7 +160,7 @@
         <span class="section-num">03.</span> {{ $t("about.skills") }}
       </p>
       <div class="skills-grid" v-reveal="{ delay: '0.1s' }">
-        <span v-for="skill in skills" :key="skill" class="skill-badge">
+        <span v-for="skill in SKILLS_FLAT" :key="skill" class="skill-badge">
           {{ skill }}
         </span>
       </div>
@@ -178,8 +178,8 @@ import { useI18n } from "vue-i18n";
 import { useDisplay } from "vuetify";
 import { Marked } from "marked";
 
-import { PROJECTS } from "../constants";
-import { EXPERIENCE, EDUCATION, AVAILABLE } from "../constants/cv";
+import { PROJECTS } from "../constants/projects";
+import { EXPERIENCE, EDUCATION, AVAILABLE, SKILLS_FLAT, CAREER_START_YEAR } from "../constants/cv";
 import { generateCvMarkdown } from "../helpers/generateCvMarkdown";
 
 const { locale } = useI18n();
@@ -202,23 +202,12 @@ function getProjectImage(id: string): string {
 }
 
 const stats = [
-  { num: "7+", label: "stats.years" },
-  { num: "2", label: "stats.companies" },
-  { num: "19+", label: "stats.projects" },
-  { num: "10+", label: "stats.technologies" },
+  { num: `${new Date().getFullYear() - CAREER_START_YEAR}+`, label: "stats.years" },
+  { num: `${EXPERIENCE.length}`, label: "stats.companies" },
+  { num: `${PROJECTS.length}+`, label: "stats.projects" },
+  { num: `${SKILLS_FLAT.length}+`, label: "stats.technologies" },
 ];
 
-const skills = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Vue.js",
-  "Node.js",
-  "GraphQL",
-  "Fastify",
-  "HTML5",
-  "CSS3",
-];
 
 const md = new Marked({ async: false, breaks: true });
 
@@ -290,11 +279,11 @@ defineExpose({ downloadPdf });
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.06);
-  border: 1px solid rgba(100, 255, 218, 0.2);
+  color: var(--c-accent);
+  background: var(--c-accent-06);
+  border: 1px solid var(--c-accent-20);
   border-radius: 100px;
   padding: 5px 14px 5px 10px;
   align-self: flex-start;
@@ -304,7 +293,7 @@ defineExpose({ downloadPdf });
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #64ffda;
+  background: var(--c-accent);
   flex-shrink: 0;
   animation: pulse-dot 2.2s ease-in-out infinite;
 }
@@ -313,7 +302,7 @@ defineExpose({ downloadPdf });
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.5);
+    box-shadow: 0 0 0 0 var(--c-accent-50);
   }
   50% {
     opacity: 0.75;
@@ -322,9 +311,9 @@ defineExpose({ downloadPdf });
 }
 
 .hero-greeting {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 1rem;
-  color: #64ffda;
+  color: var(--c-accent);
   margin: 0;
 }
 
@@ -336,7 +325,7 @@ defineExpose({ downloadPdf });
 .hero-name {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
-  color: #ccd6f6;
+  color: var(--c-text);
   line-height: 1.05;
   margin: 0;
   letter-spacing: -0.03em;
@@ -345,7 +334,7 @@ defineExpose({ downloadPdf });
 .hero-role {
   font-size: clamp(1.4rem, 3.5vw, 2.4rem);
   font-weight: 600;
-  color: #8892b0;
+  color: var(--c-muted);
   margin: 0;
   letter-spacing: -0.01em;
 }
@@ -353,7 +342,7 @@ defineExpose({ downloadPdf });
 .hero-bio {
   font-size: 1rem;
   line-height: 1.85;
-  color: #8892b0;
+  color: var(--c-muted);
   margin: 0.25rem 0 0;
   max-width: 52ch;
 }
@@ -361,21 +350,21 @@ defineExpose({ downloadPdf });
 .hero-current {
   display: flex;
   align-items: center;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
-  color: #64ffda;
+  color: var(--c-accent);
   margin: 0;
 }
 
 .cv-btn {
   align-self: flex-start;
   margin-top: 0.25rem;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
-  color: #64ffda;
+  color: var(--c-accent);
   background: transparent;
-  border: 1px solid rgba(100, 255, 218, 0.4);
+  border: 1px solid var(--c-accent-40);
   border-radius: 6px;
   padding: 10px 22px;
   cursor: pointer;
@@ -387,7 +376,7 @@ defineExpose({ downloadPdf });
 }
 
 .cv-btn:hover {
-  background: rgba(100, 255, 218, 0.08);
+  background: var(--c-accent-08);
   border-color: rgba(100, 255, 218, 0.8);
 }
 
@@ -406,7 +395,7 @@ defineExpose({ downloadPdf });
 .photo-avatar {
   position: relative;
   z-index: 1;
-  border: 2px solid rgba(100, 255, 218, 0.25);
+  border: 2px solid var(--c-accent-25);
   transition: border-color 0.3s;
 }
 
@@ -417,7 +406,7 @@ defineExpose({ downloadPdf });
   left: 18px;
   width: 100%;
   height: 100%;
-  border: 2px solid #64ffda;
+  border: 2px solid var(--c-accent);
   border-radius: 50%;
   z-index: 0;
   transition: transform 0.3s ease;
@@ -430,17 +419,17 @@ defineExpose({ downloadPdf });
 }
 
 .photo-frame:hover .photo-avatar {
-  border-color: rgba(100, 255, 218, 0.6);
+  border-color: var(--c-accent-60);
 }
 
 /* ── Stats strip ──────────────────────────────────────────────── */
 .stats-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border: 1px solid rgba(100, 255, 218, 0.08);
-  border-radius: 10px;
+  border: 1px solid var(--c-accent-08);
+  border-radius: var(--r-card);
   overflow: hidden;
-  background: rgba(100, 255, 218, 0.02);
+  background: var(--c-accent-02);
   margin-bottom: 1rem;
 }
 
@@ -450,7 +439,7 @@ defineExpose({ downloadPdf });
   align-items: center;
   gap: 5px;
   padding: 1.5rem 1rem;
-  border-right: 1px solid rgba(100, 255, 218, 0.06);
+  border-right: 1px solid var(--c-accent-06);
 }
 
 .stat-item:last-child {
@@ -458,16 +447,16 @@ defineExpose({ downloadPdf });
 }
 
 .stat-num {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 2rem;
   font-weight: 700;
-  color: #64ffda;
+  color: var(--c-accent);
   line-height: 1;
 }
 
 .stat-label {
   font-size: 0.72rem;
-  color: #8892b0;
+  color: var(--c-muted);
   text-align: center;
   line-height: 1.3;
 }
@@ -475,13 +464,13 @@ defineExpose({ downloadPdf });
 /* ── Sections ─────────────────────────────────────────────────── */
 .cv-section {
   padding: 3.5rem 0;
-  border-top: 1px solid rgba(100, 255, 218, 0.08);
+  border-top: 1px solid var(--c-accent-08);
 }
 
 .section-label {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
-  color: #8892b0;
+  color: var(--c-muted);
   margin: 0 0 2rem;
   display: flex;
   align-items: center;
@@ -489,7 +478,7 @@ defineExpose({ downloadPdf });
 }
 
 .section-num {
-  color: #64ffda;
+  color: var(--c-accent);
 }
 
 .section-header-row {
@@ -504,9 +493,9 @@ defineExpose({ downloadPdf });
 }
 
 .see-all-link {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: #64ffda;
+  color: var(--c-accent);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -534,8 +523,8 @@ defineExpose({ downloadPdf });
   width: 1px;
   background: linear-gradient(
     to bottom,
-    #64ffda 0%,
-    rgba(100, 255, 218, 0.1) 100%
+    var(--c-accent) 0%,
+    var(--c-accent-10) 100%
   );
 }
 
@@ -555,13 +544,13 @@ defineExpose({ downloadPdf });
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #64ffda;
-  box-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+  background: var(--c-accent);
+  box-shadow: 0 0 10px var(--c-accent-60);
   transform: translateX(calc(-50% + 3.5px));
 }
 
 .timeline-dot--edu {
-  background: #7c3aed;
+  background: var(--c-purple);
   box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
 }
 
@@ -588,13 +577,13 @@ defineExpose({ downloadPdf });
 .xp-role {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #ccd6f6;
+  color: var(--c-text);
   margin: 0;
 }
 
 .xp-company {
   font-size: 0.85rem;
-  color: #8892b0;
+  color: var(--c-muted);
   margin: 0;
   display: flex;
   align-items: center;
@@ -602,7 +591,7 @@ defineExpose({ downloadPdf });
 }
 
 .xp-company-name {
-  color: #64ffda;
+  color: var(--c-accent);
   font-weight: 500;
 }
 
@@ -611,9 +600,9 @@ defineExpose({ downloadPdf });
 }
 
 .xp-period {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #8892b0;
+  color: var(--c-muted);
   white-space: nowrap;
   padding-top: 3px;
 }
@@ -621,7 +610,7 @@ defineExpose({ downloadPdf });
 .xp-summary {
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #8892b0;
+  color: var(--c-muted);
   margin: 0;
 }
 
@@ -646,7 +635,7 @@ defineExpose({ downloadPdf });
   content: "▸";
   position: absolute;
   left: 0;
-  color: #64ffda;
+  color: var(--c-accent);
   font-size: 0.7rem;
   top: 3px;
 }
@@ -659,9 +648,9 @@ defineExpose({ downloadPdf });
 }
 
 .project-card {
-  background: #111827;
-  border: 1px solid rgba(100, 255, 218, 0.06);
-  border-radius: 10px;
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-accent-06);
+  border-radius: var(--r-card);
   overflow: hidden;
   text-decoration: none;
   transition:
@@ -674,15 +663,15 @@ defineExpose({ downloadPdf });
 
 .project-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(100, 255, 218, 0.25);
-  box-shadow: 0 8px 32px rgba(100, 255, 218, 0.07);
+  border-color: var(--c-accent-25);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .card-image-wrap {
   position: relative;
   height: 150px;
   overflow: hidden;
-  background: #1a2540;
+  background: var(--c-bg-card-img);
 }
 
 .card-image {
@@ -725,7 +714,7 @@ defineExpose({ downloadPdf });
 .card-title {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #ccd6f6;
+  color: var(--c-text);
   margin: 0;
   line-height: 1.3;
 }
@@ -737,19 +726,19 @@ defineExpose({ downloadPdf });
 }
 
 .tech-tag {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.06);
-  border: 1px solid rgba(100, 255, 218, 0.14);
-  border-radius: 3px;
+  color: var(--c-accent);
+  background: var(--c-accent-06);
+  border: 1px solid var(--c-accent-14);
+  border-radius: var(--r-tag);
   padding: 2px 7px;
 }
 
 .tech-more {
-  color: #8892b0;
-  border-color: rgba(136, 146, 176, 0.14);
-  background: rgba(136, 146, 176, 0.06);
+  color: var(--c-muted);
+  border-color: var(--c-muted-14);
+  background: var(--c-muted-06);
 }
 
 /* ── Skills ───────────────────────────────────────────────────── */
@@ -760,12 +749,12 @@ defineExpose({ downloadPdf });
 }
 
 .skill-badge {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.05);
-  border: 1px solid rgba(100, 255, 218, 0.2);
-  border-radius: 4px;
+  color: var(--c-accent);
+  background: var(--c-accent-05);
+  border: 1px solid var(--c-accent-20);
+  border-radius: var(--r-badge);
   padding: 6px 14px;
   transition:
     background 0.2s,
@@ -774,8 +763,8 @@ defineExpose({ downloadPdf });
 }
 
 .skill-badge:hover {
-  background: rgba(100, 255, 218, 0.1);
-  border-color: rgba(100, 255, 218, 0.5);
+  background: var(--c-accent-10);
+  border-color: var(--c-accent-50);
 }
 
 /* ── Responsive ───────────────────────────────────────────────── */
@@ -793,11 +782,11 @@ defineExpose({ downloadPdf });
   }
 
   .stat-item:nth-child(3) {
-    border-top: 1px solid rgba(100, 255, 218, 0.06);
+    border-top: 1px solid var(--c-accent-06);
   }
 
   .stat-item:nth-child(4) {
-    border-top: 1px solid rgba(100, 255, 218, 0.06);
+    border-top: 1px solid var(--c-accent-06);
   }
 }
 
@@ -861,7 +850,7 @@ defineExpose({ downloadPdf });
 
 :deep(.markdown-content pre) {
   background: #2d2d2d;
-  border-radius: 4px;
+  border-radius: var(--r-badge);
   margin: 0.5em 0;
   padding: 1em;
   overflow-x: auto;
@@ -877,7 +866,7 @@ defineExpose({ downloadPdf });
 :deep(.markdown-content :not(pre) > code) {
   background: #f0f0f0;
   padding: 2px 4px;
-  border-radius: 3px;
+  border-radius: var(--r-tag);
   color: #e83e8c;
 }
 

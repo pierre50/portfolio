@@ -58,12 +58,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch, onUnmounted } from "vue";
 
-defineProps<{ images: string[] }>();
+const props = defineProps<{ images: string[] }>();
 
 const selected = ref(0);
 const lightboxOpen = ref(false);
+
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === "ArrowLeft" && selected.value > 0) selected.value--;
+  else if (e.key === "ArrowRight" && selected.value < props.images.length - 1) selected.value++;
+  else if (e.key === "Escape") lightboxOpen.value = false;
+}
+
+watch(lightboxOpen, (open) => {
+  if (open) window.addEventListener("keydown", onKeydown);
+  else window.removeEventListener("keydown", onKeydown);
+});
+
+onUnmounted(() => window.removeEventListener("keydown", onKeydown));
 </script>
 
 <style scoped>
@@ -76,11 +89,11 @@ const lightboxOpen = ref(false);
 
 .main-wrap {
   position: relative;
-  border-radius: 8px;
+  border-radius: var(--r-btn);
   overflow: hidden;
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  border: 1px solid var(--c-accent-10);
   cursor: zoom-in;
-  background: #111827;
+  background: var(--c-bg-card);
 }
 
 .main-img {
@@ -101,9 +114,10 @@ const lightboxOpen = ref(false);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64ffda;
+  color: var(--c-accent);
   opacity: 0;
   transition: opacity 0.2s;
+  pointer-events: none;
 }
 
 .main-wrap:hover .main-overlay {
@@ -114,12 +128,12 @@ const lightboxOpen = ref(false);
   position: absolute;
   bottom: 10px;
   right: 12px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   color: rgba(204, 214, 246, 0.7);
   background: rgba(10, 14, 23, 0.6);
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: var(--r-badge);
   backdrop-filter: blur(4px);
 }
 
@@ -133,7 +147,7 @@ const lightboxOpen = ref(false);
 .thumb-btn {
   padding: 0;
   background: none;
-  border: 1px solid rgba(100, 255, 218, 0.06);
+  border: 1px solid var(--c-accent-06);
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
@@ -151,8 +165,8 @@ const lightboxOpen = ref(false);
 }
 
 .thumb-btn.active {
-  border-color: #64ffda;
-  box-shadow: 0 0 8px rgba(100, 255, 218, 0.25);
+  border-color: var(--c-accent);
+  box-shadow: 0 0 8px var(--c-accent-25);
 }
 
 .thumb-img {
@@ -186,8 +200,8 @@ const lightboxOpen = ref(false);
   max-width: 90vw;
   max-height: 88vh;
   object-fit: contain;
-  border-radius: 8px;
-  border: 1px solid rgba(100, 255, 218, 0.12);
+  border-radius: var(--r-btn);
+  border: 1px solid var(--c-accent-12);
 }
 
 .lb-close {
@@ -196,10 +210,10 @@ const lightboxOpen = ref(false);
   right: 16px;
   width: 40px;
   height: 40px;
-  border-radius: 8px;
-  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: var(--r-btn);
+  border: 1px solid var(--c-accent-20);
   background: rgba(10, 14, 23, 0.8);
-  color: #64ffda;
+  color: var(--c-accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,7 +222,7 @@ const lightboxOpen = ref(false);
 }
 
 .lb-close:hover {
-  background: rgba(100, 255, 218, 0.12);
+  background: var(--c-accent-12);
 }
 
 .lb-arrow {
@@ -217,10 +231,10 @@ const lightboxOpen = ref(false);
   transform: translateY(-50%);
   width: 44px;
   height: 44px;
-  border-radius: 8px;
-  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: var(--r-btn);
+  border: 1px solid var(--c-accent-20);
   background: rgba(10, 14, 23, 0.8);
-  color: #64ffda;
+  color: var(--c-accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,8 +246,8 @@ const lightboxOpen = ref(false);
 }
 
 .lb-arrow:hover {
-  background: rgba(100, 255, 218, 0.12);
-  border-color: rgba(100, 255, 218, 0.5);
+  background: var(--c-accent-12);
+  border-color: var(--c-accent-50);
 }
 
 .lb-prev {

@@ -24,8 +24,9 @@ function loadLocaleMessages(): Messages {
   return messages;
 }
 
-const browserLang = (navigator.language || "en").split("-")[0]; // "fr", "en", etc.
-const locale = browserLang === "fr" ? "fr" : "en";
+const savedLang = localStorage.getItem("locale");
+const browserLang = (navigator.language || "en").split("-")[0];
+const locale = savedLang || (browserLang === "fr" ? "fr" : "en");
 
 export default createI18n({
   legacy: false,

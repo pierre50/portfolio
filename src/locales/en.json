@@ -1,18 +1,18 @@
 {
   "projects": {
     "deviscope": {
-      "description": "Deviscope is an AI-powered SaaS platform for auditing construction quotes and estimating renovation costs. The tool leverages GPT-4o Vision to extract data from PDF quotes, verify contractor compliance via government APIs (SIRENE, BODACC, ADEME), and flag pricing inconsistencies. It features a hybrid calculation engine (AI + deterministic business logic) to simulate accurate renovation budgets, dynamically adjusted with regional price indexing and national cost databases."
+      "description": "<p>AI-powered SaaS platform for auditing construction quotes.</p><ul><li><strong>Problem:</strong> Homeowners have no reliable way to assess quote fairness — inflated prices, unvetted contractors, no accessible benchmark.</li><li><strong>Solution:</strong> GPT-4o Vision parses PDF quotes, SIRENE/BODACC/ADEME APIs verify contractor compliance, and a hybrid AI + business logic engine generates a region-adjusted reference budget.</li><li><strong>Impact:</strong> Live at deviscope.fr — delivers in seconds the analysis a professional would take hours to produce manually.</li></ul>"
     },
-    "rts": { "description": "A recreation of Age of Empires I built entirely with JavaScript and PixiJS, without using any game engine. The project implements the core mechanics of the original game: tile-based maps, fog of war, unit selection and movement, resource gathering, building construction, and basic AI logic. The main goal is to showcase strong skills in 2D rendering, scene management, performance optimization, and designing a custom lightweight game engine from scratch." },
-    "kiki": { "description": "An experimental project built with Babylon.js to explore gameplay mechanics in a 3D environment. The world is procedurally generated, featuring a mapped terrain with random hills and trees. The player can click on the ground to move a small creature, with movement handled using an A* pathfinding algorithm adapted to the terrain. This project highlights 3D terrain handling, intelligent navigation, mouse-based interactions, and gameplay logic implementation within a modern 3D engine." },
+    "rts": { "description": "<p>Age of Empires I recreated in pure JavaScript, no game engine.</p><ul><li><strong>Challenge:</strong> Rebuild a full RTS from scratch — 2D rendering, AI, pathfinding, resource management — without any game framework.</li><li><strong>Solution:</strong> Custom engine on top of PixiJS: tile maps, fog of war, unit selection, resource gathering, building construction and basic AI.</li><li><strong>Result:</strong> Ongoing project, playable online — showcases low-level rendering, performance, and custom game engine architecture.</li></ul>" },
+    "kiki": { "description": "<p>3D gameplay mechanics experimentation with Babylon.js.</p><ul><li><strong>Challenge:</strong> Explore intelligent navigation on procedurally generated 3D terrain — variable relief, hills, trees — without a dedicated pathfinding library.</li><li><strong>Solution:</strong> Procedural terrain generation with an A* algorithm adapted to 3D relief, mouse-driven creature movement for smooth interaction.</li><li><strong>Result:</strong> Functional prototype demonstrating complex 3D terrain management and gameplay logic integration in a modern engine.</li></ul>" },
     "supfile": {
-      "description": "Supfile is a web application for hosting and sharing files. Users can upload files of any type (video, images, text, etc.) directly from their browser. Each file can be renamed, moved, or deleted via a file tree, and users can share their files via a shareable link."
+      "description": "<p>Web application for hosting and sharing files.</p><ul><li><strong>Problem:</strong> Sharing large files between students was painful — email attachments, expiring links, no organization.</li><li><strong>Solution:</strong> VueJS + Laravel stack with multi-type file upload, interactive file tree (rename, move, delete), and persistent shareable links.</li><li><strong>Result:</strong> 6-month project — complete client/server architecture with access management and data persistence.</li></ul>"
     },
     "awale": {
       "description": "Awalé is an African game from the Mancala family. It is a strategic game where the goal is to collect the most seeds. The objective of this project was to develop an artificial intelligence with three difficulty levels."
     },
     "battleship": {
-      "description": "Developed the famous Battleship game on the web, including a global chat and the ability to add friends to play against them."
+      "description": "<p>Real-time multiplayer Battleship built in a 2-week school sprint.</p><ul><li><strong>Challenge:</strong> Recreate a synchronized multiplayer game with social features under a very tight deadline.</li><li><strong>Solution:</strong> NodeJS + SocketIO to sync game state in real time, integrated global chat, and a friends system for private matches.</li><li><strong>Result:</strong> Fully playable online game — demonstrates WebSocket mastery and server-side state synchronization.</li></ul>"
     },
     "weathermap": {
       "description": "WeatherMap is an application that allows users to quickly and easily check the weather worldwide. By clicking on the map or searching for a city, users get the weather information for the selected region. It is also possible to save cities or regions as favorites for a dedicated view."
@@ -24,7 +24,7 @@
       "description": "Supinfy is a music streaming application. Users can listen to music, manage their playlists once logged in, and search for other users' playlists. A contact system allows adding friends and staying updated on their latest playlists. Administrators can manage users and select playlists to feature on the homepage."
     },
     "qwirk": {
-      "description": "Qwirk is a personal and professional communication application, compatible with Windows, MacOS, and Linux (Ubuntu). It offers complete instant messaging: text, video, audio calls, contact management (add, remove, block, rename), and file sharing. Users can customize their profile and app theme, send emojis, style text, and create public (channels) or private groups. All conversations are saved and fully secure."
+      "description": "<p>Cross-platform communication app (Windows, macOS, Linux).</p><ul><li><strong>Challenge:</strong> Build a full-featured communication tool in 6 months, on par with professional apps on the market.</li><li><strong>Solution:</strong> NodeJS + SocketIO for real-time messaging, WebRTC for audio/video calls, full contact management, public/private groups, file sharing, and profile customization.</li><li><strong>Result:</strong> Robust event-driven architecture with encrypted, persistent conversations — feature set comparable to Slack or Discord.</li></ul>"
     },
     "imap": {
       "description": "This application helps locate a position quickly. Useful for finding your car in a large parking lot, locating your tent at a music festival, or discovering interesting places in a city you encounter by chance."
@@ -39,7 +39,7 @@
       "description": "Cakeblog is an online blog. The blog author can create, modify, or delete articles and manage visitor comments. Visitors can leave one or more comments under a pseudonym and contact the author via a contact form."
     },
     "freefallin": {
-      "description": "FreeFallin' is a small 2D game where the goal is to dodge obstacles in a randomly generated world by tilting your phone left or right during the character's fall. Power-ups appear as boxes along the way. The score increases over time as difficulty rises. When the character crashes into a wall, the game ends, the score is recorded, and it could be shared on Facebook."
+      "description": "<p>Solo 2D mobile game developed end-to-end in 4 months.</p><ul><li><strong>Challenge:</strong> Self-taught on GML, ship a complete mobile game solo — procedural generation, gyroscope controls, full progression mechanics.</li><li><strong>Solution:</strong> Randomly generated world, dynamic obstacles, power-up system, progressive difficulty, score leaderboard, and Facebook sharing.</li><li><strong>Result:</strong> Published and fully playable — proves the ability to deliver a complete product from scratch, entirely outside any school framework.</li></ul>"
     },
     "easyhome": {
       "description": "EasyHome is a real estate agency website. Visitors can view listings filtered by their preferences. Logged-in users can request appointments to visit properties, optionally specifying a date, and manage their requests. They can also suggest adding new properties. All requests are emailed to the sellers, who can add listings and manage appointments via a dedicated space."
@@ -61,6 +61,7 @@
       "finished": "Finished",
       "inprogress": "In Progress"
     },
+    "searchTech": "Filter by tech…",
     "technologies": "Technology(ies)",
     "link": "Link(s)",
     "previous": "Previous Project",
@@ -71,6 +72,7 @@
   "about": {
     "bio": "Lead Full Stack Developer with over 7 years of experience designing, scaling and securing complex, business-critical web applications. Strong expertise in modern JavaScript architectures (React, Node.js, TypeScript), large-scale codebase structuring and automation of critical business processes.",
     "current": "Lead Dev · Alf · since 2022",
+    "greeting": "Hi, I'm",
     "experience": "Experience",
     "featured": "Featured Projects",
     "seeall": "See all projects",
@@ -99,6 +101,7 @@
   "contact": {
     "title": "Let's Connect",
     "sub": "I'm always open to new opportunities, collaborations, or just a chat.",
+    "cta": "Send me an email",
     "copy": "Click to copy",
     "copied": "Email copied!"
   },

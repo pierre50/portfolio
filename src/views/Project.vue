@@ -38,7 +38,7 @@
           />
         </div>
         <div v-if="images.length" class="gallery-wrap">
-          <galery :images="images" />
+          <gallery :images="images" />
         </div>
       </div>
 
@@ -115,8 +115,8 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
-import { PROJECTS, type Project } from "../constants";
-import Galery from "../components/Galery.vue";
+import { PROJECTS, type Project } from "../constants/projects";
+import Gallery from "../components/Gallery.vue";
 
 const route = useRoute();
 const { locale } = useI18n();
@@ -172,13 +172,13 @@ const projectLength = computed(() => {
   align-items: center;
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(100, 255, 218, 0.08);
+  border-bottom: 1px solid var(--c-accent-08);
 }
 
 .back-link {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #64ffda;
+  color: var(--c-accent);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -196,9 +196,9 @@ const projectLength = computed(() => {
 }
 
 .arrow-link {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #8892b0;
+  color: var(--c-muted);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -207,7 +207,7 @@ const projectLength = computed(() => {
 }
 
 .arrow-link:hover:not(.disabled) {
-  color: #64ffda;
+  color: var(--c-accent);
 }
 
 .arrow-link.disabled {
@@ -226,8 +226,8 @@ const projectLength = computed(() => {
 /* ── Media ────────────────────────────────────────────────────── */
 .preview-frame {
   border: none;
-  border-radius: 8px;
-  background: #111827;
+  border-radius: var(--r-btn);
+  background: var(--c-bg-card);
   width: 100%;
 }
 
@@ -245,7 +245,7 @@ const projectLength = computed(() => {
 .project-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ccd6f6;
+  color: var(--c-text);
   margin: 0;
   letter-spacing: -0.01em;
   line-height: 1.25;
@@ -256,9 +256,9 @@ const projectLength = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background: #111827;
-  border: 1px solid rgba(100, 255, 218, 0.06);
-  border-radius: 8px;
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-accent-06);
+  border-radius: var(--r-btn);
   padding: 16px;
 }
 
@@ -270,37 +270,37 @@ const projectLength = computed(() => {
 }
 
 .meta-key {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #8892b0;
+  color: var(--c-muted);
   white-space: nowrap;
 }
 
 .meta-val {
   font-size: 0.85rem;
-  color: #ccd6f6;
+  color: var(--c-text);
   text-align: right;
 }
 
 .status-badge {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   padding: 2px 9px;
-  border-radius: 4px;
+  border-radius: var(--r-badge);
 }
 
 .status-badge.finished {
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.1);
+  color: var(--c-accent);
+  background: var(--c-accent-10);
 }
 
 .status-badge.inprogress {
-  color: #ffd166;
+  color: var(--c-warn);
   background: rgba(255, 209, 102, 0.1);
 }
 
 .status-badge.aborted {
-  color: #ff6b6b;
+  color: var(--c-danger);
   background: rgba(255, 107, 107, 0.1);
 }
 
@@ -312,9 +312,9 @@ const projectLength = computed(() => {
 }
 
 .block-label {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #8892b0;
+  color: var(--c-muted);
 }
 
 .tech-tags {
@@ -324,12 +324,12 @@ const projectLength = computed(() => {
 }
 
 .tech-tag {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.06);
-  border: 1px solid rgba(100, 255, 218, 0.14);
-  border-radius: 3px;
+  color: var(--c-accent);
+  background: var(--c-accent-06);
+  border: 1px solid var(--c-accent-14);
+  border-radius: var(--r-tag);
   padding: 3px 10px;
 }
 
@@ -340,9 +340,9 @@ const projectLength = computed(() => {
 }
 
 .project-link {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #64ffda;
+  color: var(--c-accent);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -362,8 +362,8 @@ const projectLength = computed(() => {
 .project-desc {
   font-size: 0.9rem;
   line-height: 1.85;
-  color: #8892b0;
-  border-top: 1px solid rgba(100, 255, 218, 0.08);
+  color: var(--c-muted);
+  border-top: 1px solid var(--c-accent-08);
   padding-top: 1.5rem;
 }
 
@@ -372,12 +372,33 @@ const projectLength = computed(() => {
 }
 
 :deep(.project-desc a) {
-  color: #64ffda;
+  color: var(--c-accent);
   text-decoration: none;
 }
 
 :deep(.project-desc a:hover) {
   text-decoration: underline;
+}
+
+:deep(.project-desc ul) {
+  list-style: none;
+  padding: 0;
+  margin: 0.75em 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65em;
+}
+
+:deep(.project-desc li) {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--c-accent-14);
+}
+
+:deep(.project-desc li strong) {
+  color: var(--c-text);
+  font-weight: 600;
 }
 
 /* ── Responsive ───────────────────────────────────────────────── */
@@ -398,8 +419,8 @@ const projectLength = computed(() => {
 .not-found {
   text-align: center;
   padding: 4rem;
-  color: #8892b0;
-  font-family: "JetBrains Mono", monospace;
+  color: var(--c-muted);
+  font-family: var(--font-mono);
   font-size: 0.9rem;
 }
 </style>

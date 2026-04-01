@@ -1,32 +1,32 @@
 {
   "projects": {
     "deviscope": {
-      "description": "Deviscope est une plateforme SaaS d'audit et d'estimation de travaux par IA. L'outil utilise GPT-4o Vision pour extraire des données de devis PDF, vérifier la conformité légale des entreprises (APIs SIRENE, BODACC, ADEME) et détecter les anomalies tarifaires. Il intègre un moteur de calcul hybride (IA + logique métier déterministe) pour simuler des budgets de rénovation précis, ajustés selon des coefficients régionaux et des bases de prix nationales."
+      "description": "<p>Plateforme SaaS d’audit de devis travaux par IA.</p><ul><li><strong>Problème :</strong> Impossible pour un particulier de savoir si un devis est honnête — tarifs gonflés, entreprises douteuses, aucun référentiel accessible.</li><li><strong>Solution :</strong> GPT-4o Vision parse les PDFs, les APIs SIRENE, BODACC et ADEME vérifient la légalité des entreprises, et un moteur hybride IA + logique métier génère un budget de référence ajusté par région.</li><li><strong>Impact :</strong> En production sur deviscope.fr — analyse en quelques secondes ce qu’un expert mettrait des heures à produire manuellement.</li></ul>"
     },
     "rts": {
-      "description": "Recréation d’Age of Empires I réalisée entièrement en JavaScript avec PixiJS, sans moteur de jeu.Le projet reproduit les mécaniques clés du jeu original : carte en tuiles, brouillard de guerre, sélection et déplacement d’unités, récolte de ressources, construction de bâtiments et logique de base de l’IA.Objectif principal : démontrer la maîtrise du rendu 2D, de la gestion de scènes, des performances et de l’architecture d’un moteur de jeu léger construit sur mesure."
+      "description": "<p>Recréation d’Age of Empires I en JavaScript pur, sans moteur de jeu.</p><ul><li><strong>Défi :</strong> Reconstruire un jeu RTS complet from scratch — rendu 2D, IA, pathfinding, gestion de ressources — sans aucun framework de jeu.</li><li><strong>Solution :</strong> Moteur custom sur PixiJS : carte en tuiles, brouillard de guerre, sélection d’unités, récolte de ressources, construction de bâtiments et IA basique.</li><li><strong>Résultat :</strong> Projet en cours, jouable en ligne — démontre la maîtrise du rendu, des performances et de l’architecture bas niveau d’un moteur de jeu.</li></ul>"
     },
-    "kiki": { "description": "Projet expérimental réalisé avec Babylon.js visant à tester des mécaniques de jeu en environnement 3D. Le monde est généré procéduralement, avec une carte mappée incluant des collines aléatoires et des arbres. Le joueur interagit en cliquant sur le terrain pour déplacer une créature, le déplacement étant calculé via un algorithme de pathfinding A* adapté au relief. Ce projet met en avant la gestion d’un terrain 3D, la navigation intelligente, les interactions souris et l’intégration de logiques de gameplay dans un moteur 3D moderne." },
+    "kiki": { "description": "<p>Expérimentation de mécaniques de jeu 3D avec Babylon.js.</p><ul><li><strong>Défi :</strong> Explorer la navigation intelligente sur terrain procédural 3D — relief variable, collines, arbres — sans librairie de pathfinding dédiée.</li><li><strong>Solution :</strong> Génération procédurale du terrain, algorithme A* adapté au relief 3D, interactions souris pour déplacer une créature de façon fluide.</li><li><strong>Résultat :</strong> Prototype fonctionnel démontrant la gestion d’un terrain 3D complexe et l’intégration de logiques de gameplay dans un moteur moderne.</li></ul>" },
     "supfile": {
-      "description": "Supfile est une application web d'hébergement et de partage de fichiers, ainsi un utilisateur va depuis son navigateur web hébergé des fichiers de tous types ( vidéo, images, texte, ...). Chaque fichier peut être renommé, déplacer et supprimer via une arborescence et il pourra partager ses fichiers via un lien de partage."
+      "description": "<p>Application web d'hébergement et de partage de fichiers.</p><ul><li><strong>Problème :</strong> Partager des fichiers volumineux entre étudiants était fastidieux — pièces jointes mail, liens qui expirent, aucune organisation.</li><li><strong>Solution :</strong> Stack VueJS + Laravel avec upload multi-types, arborescence interactive (renommer, déplacer, supprimer) et génération de liens de partage permanents.</li><li><strong>Résultat :</strong> Projet de 6 mois — architecture client/serveur complète avec gestion des droits et persistance des données.</li></ul>"
     },
     "awale": {
-      "description": "L'Awalé est un jeu d'origine africaine de a famille des Mancalas. C'est un jeu stratégique où il faut récolter le plus de graines. Le but de ce projet était de développer une intelligence artificielle avec trois niveaux de difficulté."
+      "description": "L'Awalé est un jeu d'origine africaine de la famille des Mancalas. C'est un jeu stratégique où il faut récolter le plus de graines. Le but de ce projet était de développer une intelligence artificielle avec trois niveaux de difficulté."
     },
     "battleship": {
-      "description": "Développer le célèbre jeux Battleship ( bataille navale ) en WEB, avec un tchat global et la possibilité d'ajouter des amis pour jouer contre eux."
+      "description": "<p>Bataille Navale multijoueur temps réel en 2 semaines.</p><ul><li><strong>Défi :</strong> Recréer un jeu multijoueur synchronisé avec interactions sociales dans un sprint école très court.</li><li><strong>Solution :</strong> NodeJS + SocketIO pour synchroniser les parties en temps réel, tchat global intégré, système d'amis pour jouer en privé.</li><li><strong>Résultat :</strong> Jeu complet jouable en ligne — démontre la maîtrise des WebSockets et de la synchronisation d'état côté serveur.</li></ul>"
     },
     "weathermap": {
       "description": "WeatherMap est une application permettant de consulter facilement et rapidement la météo dans le monde. En cliquant directement sur la carte ou en recherchant une ville, on obtient les informations de météo de la région sélectionnée. Il est aussi possible de sauvegarder des villes ou région en favoris, pour les consulter dans une vue dédiée."
     },
     "biblio": {
-      "description": "Biblio est un outil permettant de gérer la location de livres dans une bibliothèque, ainsi ont peu gérer les utilisateurs et les livres. Crée, clôturer une location et consulter l'historique de location pour chaque livre ou utilisateur."
+      "description": "Biblio est un outil permettant de gérer la location de livres dans une bibliothèque, ainsi on peut gérer les utilisateurs et les livres. Crée, clôturer une location et consulter l'historique de location pour chaque livre ou utilisateur."
     },
     "supinfy": {
       "description": "Supinfy est une application de musique en streaming. Chaque utilisateur peut écouter des musiques, une fois connecter, il peut gérer ses playlists, mais aussi rechercher les playlists d'autres utilisateurs. Un système de contact permet d'ajouter des amis et ainsi être tenu au courant des dernières playlists de ses amis. L'administrateur peut lui gérer les utilisateurs et sélectionner des playlists à mettre en page d'accueil."
     },
     "qwirk": {
-      "description": "Qwirk est une application de communication personnelle et professionnelle, compatible Windows, MacOS, Linux(Ubuntu). Un système de messagerie instantanée complet : message, vidéo, audio conférence avec gestion des contacts (ajouter, supprimer, bloquer, modifier le surnom) et partage de fichier. Modification du profil, choix du thème de l'application. Possibilité d'envoyer des émoticones et de styliser le texte. Création de groupe public (channel) et groupe privé. Toutes les conversations sont sauvegarde et le tout est totalement sécuriser."
+      "description": "<p>Application de communication multiplateforme (Windows, macOS, Linux).</p><ul><li><strong>Défi :</strong> Concevoir en 6 mois un outil de communication complet rivalisant avec les apps pro du marché.</li><li><strong>Solution :</strong> NodeJS + SocketIO pour la messagerie temps réel, WebRTC pour les appels audio/vidéo, gestion des contacts, groupes publics/privés, partage de fichiers et personnalisation du profil.</li><li><strong>Résultat :</strong> Architecture événementielle robuste, conversations chiffrées et persistées — feature set comparable à Slack ou Discord.</li></ul>"
     },
     "imap": {
       "description": "Le but de cette application est de trouver une position où nous étions. Utile pour trouver très vite sa voiture sur un grand parking. Il permet également de trouver sa tente dans un festival de musique ou des endroits intéressants en ville que nous avons rencontrés par hasard."
@@ -41,10 +41,10 @@
       "description": "Cakeblog est un blog en ligne. L'auteur du blog pourra générer, modifier ou supprimer des articles et gérer les commentaires laissés par les visiteurs sur chaque article. Les visiteurs pourront laisser un ou plusieurs commentaire(s) avec un pseudonyme et envoyer un mail à l'auteur du blog grâce à un formulaire de contact."
     },
     "freefallin": {
-      "description": "FreeFallin' et un petit jeu en 2D, le but et d'esquiver les obstacles d'un monde généré aléatoirement, en pivotant son téléphone de gauche a droite, tout ça durant la chute entrainante du personnage. Sur le chemin, on trouvera certain super-pouvoir sous la forme de caisse. Le score augmente au fil du temps, mais la difficulté aussi. Lorsque que le personnage se crashe sur un mur la partie s'arrête, le score et enregistrer puis disponible via le menu accueil et on (avait) la possibilité de partager le score sur Facebook."
+      "description": "<p>Jeu mobile 2D développé seul de A à Z en 4 mois.</p><ul><li><strong>Défi :</strong> Mener un projet jeu complet en solo et en autodidacte sur GML — génération procédurale, contrôle gyroscopique, mécaniques de progression.</li><li><strong>Solution :</strong> Monde généré aléatoirement, obstacles dynamiques, système de super-pouvoirs, difficulté progressive et classement des scores avec partage Facebook.</li><li><strong>Résultat :</strong> Jeu publié et fonctionnel — démontre la capacité à livrer un produit complet de bout en bout en dehors de tout cadre scolaire.</li></ul>"
     },
     "easyhome": {
-      "description": "EasyHome est le site d'une agence immobilière. Chaque visiteur peut consulter les annonces et les répertorier selon ses besoins / préférences. Une fois connecté, un utilisateur peut demander un rendez-vous pour visiter un bien et préciser ou non une date, mais aussi visualiser et gérer ses rendez-vous. Il peut aussi demander l'ajout d'un bien immobilier. Toutes ses demandes sont retransmises par mail aux vendeurs concerné, celui-ci pourra alors via un espace dédié ajouter des annonces et gerer ses rendez-vous."
+      "description": "EasyHome est le site d'une agence immobilière. Chaque visiteur peut consulter les annonces et les répertorier selon ses besoins / préférences. Une fois connecté, un utilisateur peut demander un rendez-vous pour visiter un bien et préciser ou non une date, mais aussi visualiser et gérer ses rendez-vous. Il peut aussi demander l'ajout d'un bien immobilier. Toutes ses demandes sont retransmises par mail aux vendeurs concernés, ceux-ci pourront alors via un espace dédié ajouter des annonces et gérer leurs rendez-vous."
     }
   },
   "project": {
@@ -63,6 +63,7 @@
       "finished": "Terminé",
       "inprogress": "En cours"
     },
+    "searchTech": "Filtrer par techno…",
     "technologies": "Technologie(s)",
     "link": "Lien(s)",
     "previous": "Projet précédent",
@@ -73,6 +74,7 @@
   "about": {
     "bio": "Lead développeur full stack avec plus de 7 ans d'expérience dans la conception, l'évolution et la sécurisation d'applications web à fort enjeu métier. Spécialisé dans les architectures JavaScript modernes (React, Node.js, TypeScript), la structuration de codebases à grande échelle et l'automatisation de processus critiques.",
     "current": "Lead Dev · Alf · depuis 2022",
+    "greeting": "Salut, je suis",
     "experience": "Expériences",
     "featured": "Projets récents",
     "seeall": "Voir tous les projets",
@@ -101,6 +103,7 @@
   "contact": {
     "title": "Travaillons ensemble",
     "sub": "Je suis toujours ouvert à de nouvelles opportunités, collaborations ou simplement échanger.",
+    "cta": "M'envoyer un email",
     "copy": "Cliquer pour copier",
     "copied": "Email copié !"
   },
