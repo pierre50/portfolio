@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
     year: "2020",
     status: "inprogress",
     preview: "https://pierre50.github.io/RTS-game/",
-    links: ["https://github.com/pierre50/RTS-game"],
+    links: ["https://github.com/pierre50/RTS-game", "https://pierre50.github.io/RTS-game/"],
     technologies: ["PixiJS"],
     image_count: 1,
   },

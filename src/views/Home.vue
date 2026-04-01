@@ -7,7 +7,9 @@
           <span class="avail-dot" />
           {{ $t("about.available") }}
         </div>
-        <p class="hero-greeting"><span class="prompt">&gt;</span> {{ $t("about.greeting") }}</p>
+        <p class="hero-greeting">
+          <span class="prompt">&gt;</span> {{ $t("about.greeting") }}
+        </p>
         <h1 class="hero-name">Pierre Nicolas.</h1>
         <h2 class="hero-role">{{ $t("job") }}</h2>
         <p class="hero-bio">{{ $t("about.bio") }}</p>
@@ -179,7 +181,13 @@ import { useDisplay } from "vuetify";
 import { Marked } from "marked";
 
 import { PROJECTS } from "../constants/projects";
-import { EXPERIENCE, EDUCATION, AVAILABLE, SKILLS_FLAT, CAREER_START_YEAR } from "../constants/cv";
+import {
+  EXPERIENCE,
+  EDUCATION,
+  AVAILABLE,
+  SKILLS_FLAT,
+  CAREER_START_YEAR,
+} from "../constants/cv";
 import { generateCvMarkdown } from "../helpers/generateCvMarkdown";
 
 const { locale } = useI18n();
@@ -202,12 +210,14 @@ function getProjectImage(id: string): string {
 }
 
 const stats = [
-  { num: `${new Date().getFullYear() - CAREER_START_YEAR}+`, label: "stats.years" },
+  {
+    num: `${new Date().getFullYear() - CAREER_START_YEAR}+`,
+    label: "stats.years",
+  },
   { num: `${EXPERIENCE.length}`, label: "stats.companies" },
   { num: `${PROJECTS.length}+`, label: "stats.projects" },
   { num: `${SKILLS_FLAT.length}+`, label: "stats.technologies" },
 ];
-
 
 const md = new Marked({ async: false, breaks: true });
 

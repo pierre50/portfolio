@@ -8,7 +8,11 @@
       <p class="contact-sub">{{ $t("contact.sub") }}</p>
     </div>
 
-    <a class="cta-btn" href="mailto:tenzin50@hotmail.fr" v-reveal="{ delay: '0.02s' }">
+    <a
+      class="cta-btn"
+      href="mailto:tenzin50@hotmail.fr"
+      v-reveal="{ delay: '0.02s' }"
+    >
       <v-icon size="18" class="me-2">mdi-email-fast-outline</v-icon>
       {{ $t("contact.cta") }}
     </a>
@@ -140,7 +144,9 @@ async function copyEmail() {
   padding: 12px 28px;
   text-decoration: none;
   font-weight: 600;
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
 .cta-btn:hover {

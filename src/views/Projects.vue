@@ -178,7 +178,9 @@ function getProjectImage(id: string): string {
   padding: 10px 0 10px 8px;
   outline: none;
   width: 160px;
-  transition: border-color 0.2s, width 0.2s;
+  transition:
+    border-color 0.2s,
+    width 0.2s;
 }
 
 .tech-search::placeholder {

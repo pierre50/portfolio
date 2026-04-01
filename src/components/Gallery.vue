@@ -67,7 +67,8 @@ const lightboxOpen = ref(false);
 
 function onKeydown(e: KeyboardEvent) {
   if (e.key === "ArrowLeft" && selected.value > 0) selected.value--;
-  else if (e.key === "ArrowRight" && selected.value < props.images.length - 1) selected.value++;
+  else if (e.key === "ArrowRight" && selected.value < props.images.length - 1)
+    selected.value++;
   else if (e.key === "Escape") lightboxOpen.value = false;
 }
 

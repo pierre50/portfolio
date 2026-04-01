@@ -353,10 +353,7 @@ body,
 .dot-grid {
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(
-    var(--c-accent-04) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(var(--c-accent-04) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
