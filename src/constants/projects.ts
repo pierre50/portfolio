@@ -15,15 +15,24 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+    {
+    id: "framly",
+    title: "Framly",
+    type: "saas",
+    year: "2026",
+    status: "inprogress",
+    technologies: ["Next.js", "Fastify", "Supabase", "OpenAI", "FAL AI", "xAI", "FFmpeg", "Bull/Redis"],
+    image_count: 4,
+  },
   {
     id: "deviscope",
     title: "Deviscope",
     type: "saas",
-    year: "2024",
+    year: "2026",
     status: "finished",
-    links: ["https://deviscope.fr"],
+    links: ["https://github.com/pierre50/deviscope"],
     technologies: ["Next.js", "Fastify", "Supabase", "OpenAI", "Bull/Redis"],
-    image_count: 4,
+    image_count: 3,
   },
   {
     id: "rts",
@@ -32,7 +41,10 @@ export const PROJECTS: Project[] = [
     year: "2020",
     status: "inprogress",
     preview: "https://pierre50.github.io/RTS-game/",
-    links: ["https://github.com/pierre50/RTS-game", "https://pierre50.github.io/RTS-game/"],
+    links: [
+      "https://github.com/pierre50/RTS-game",
+      "https://pierre50.github.io/RTS-game/",
+    ],
     technologies: ["PixiJS"],
     image_count: 1,
   },

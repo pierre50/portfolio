@@ -188,9 +188,35 @@ export const EXPERIENCE: Experience[] = [
 
 export const PROJECTS: Project[] = [
   {
+    title: "Framly",
+    year: "2026",
+    technologies: ["Next.js", "Fastify", "Supabase", "OpenAI", "FAL AI", "xAI", "FFmpeg", "Bull/Redis"],
+    summary: {
+      fr: "Studio SaaS solo de création de vidéos courtes par IA, du brief au MP4 publié.",
+      en: "Solo AI-powered SaaS studio for short-form video creation, from brief to published MP4.",
+    },
+    bullets: [
+      {
+        fr: "Pipeline multi-étapes orchestrant storyboard, narration TTS, génération d'images et de clips vidéo via plusieurs providers IA (OpenAI, FAL/Kling, xAI Grok).",
+        en: "Built a multi-step pipeline orchestrating storyboard, TTS narration, image and video clip generation across multiple AI providers (OpenAI, FAL/Kling, xAI Grok).",
+      },
+      {
+        fr: "Assemblage final FFmpeg avec incrustation de sous-titres ASS mot par mot, mixage audio multi-piste et exports multi-langues FR/EN depuis les mêmes clips sources.",
+        en: "Final FFmpeg assembly with word-by-word ASS subtitle rendering, multi-track audio mixing and FR/EN multi-language exports from the same source clips.",
+      },
+      {
+        fr: "Système de bible de continuité IA (cast, lieux, directives de scène) pour garantir la cohérence visuelle des personnages entre les clips d'une même vidéo.",
+        en: "AI continuity bible system (cast, locations, scene directives) to ensure visual character consistency across clips within a single video.",
+      },
+      {
+        fr: "Conception et développement de l'ensemble de la stack en solo : front-end Next.js App Router, API Fastify, base Supabase, jobs asynchrones Bull/Redis et observabilité coûts/tokens par projet.",
+        en: "Designed and built the full stack solo: Next.js App Router front-end, Fastify API, Supabase database, Bull/Redis async jobs and per-project cost/token observability.",
+      },
+    ],
+  },
+  {
     title: "Deviscope",
-    year: "2024",
-    link: "https://deviscope.fr",
+    year: "2026",
     technologies: ["Next.js", "Fastify", "Supabase", "OpenAI", "Bull/Redis"],
     summary: {
       fr: "Plateforme SaaS solo d'audit et d'estimation de travaux par IA.",

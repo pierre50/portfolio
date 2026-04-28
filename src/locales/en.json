@@ -1,5 +1,8 @@
 {
   "projects": {
+    "framly": {
+      "description": "<p>AI-powered SaaS studio for short-form video creation.</p><ul><li><strong>Problem:</strong> Producing a compelling short video requires editing, voiceover and motion design skills most creators don't have.</li><li><strong>Solution:</strong> A multi-step wizard turns a plain-text brief into a publish-ready video — automatic storyboard, AI voiceover, image and clip generation, captions and final MP4 assembly.</li><li><strong>Impact:</strong> From brief to TikTok/Shorts-ready video in minutes, with no editing software or technical skills required.</li></ul>"
+    },
     "deviscope": {
       "description": "<p>AI-powered SaaS platform for auditing construction quotes.</p><ul><li><strong>Problem:</strong> Homeowners have no reliable way to assess quote fairness — inflated prices, unvetted contractors, no accessible benchmark.</li><li><strong>Solution:</strong> GPT-4o Vision parses PDF quotes, SIRENE/BODACC/ADEME APIs verify contractor compliance, and a hybrid AI + business logic engine generates a region-adjusted reference budget.</li><li><strong>Impact:</strong> Live at deviscope.fr — delivers in seconds the analysis a professional would take hours to produce manually.</li></ul>"
     },

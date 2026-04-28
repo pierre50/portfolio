@@ -1,5 +1,8 @@
 {
   "projects": {
+    "framly": {
+      "description": "<p>Studio SaaS de création de vidéos courtes par IA.</p><ul><li><strong>Problème :</strong> Créer une vidéo courte percutante demande des compétences en montage, narration et motion design inaccessibles à la plupart des créateurs.</li><li><strong>Solution :</strong> Un wizard multi-étapes transforme un simple brief texte en vidéo prête à publier — storyboard automatique, narration vocale, génération d'images et de clips, sous-titres et assemblage MP4 final.</li><li><strong>Impact :</strong> Du brief à la vidéo TikTok/Shorts en quelques minutes, sans logiciel de montage ni compétences techniques.</li></ul>"
+    },
     "deviscope": {
       "description": "<p>Plateforme SaaS d’audit de devis travaux par IA.</p><ul><li><strong>Problème :</strong> Impossible pour un particulier de savoir si un devis est honnête — tarifs gonflés, entreprises douteuses, aucun référentiel accessible.</li><li><strong>Solution :</strong> GPT-4o Vision parse les PDFs, les APIs SIRENE, BODACC et ADEME vérifient la légalité des entreprises, et un moteur hybride IA + logique métier génère un budget de référence ajusté par région.</li><li><strong>Impact :</strong> En production sur deviscope.fr — analyse en quelques secondes ce qu’un expert mettrait des heures à produire manuellement.</li></ul>"
     },
